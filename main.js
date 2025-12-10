@@ -2,6 +2,7 @@
 import bulbasaurAttacks from "./JavaScriptFolder/javaScript.js";
 import CardBasic from "./JavaScriptFolder/CardBasic.js";
 import {setCounters, setRivalCounters, setPlayerCounters} from "./JavaScriptFolder/counterCalculations.js";
+import {setPokemonHealth, setRivalHealth,setPlayerHealth} from "./JavaScriptFolder/setPokemonHealth.js";
 import damageCalculations from "./JavaScriptFolder/damageCalculations.js";
 
 let myPokemon = new CardBasic("Squirtle", 100, "water", "electric", "fire", 10, 10);
@@ -39,36 +40,37 @@ function setGame(){
 
 function setGameRival(){
     /*Set Rival Area */
-    document.getElementById("rivalHp").innerHTML=rivalPokemonHealth + " Hp";
+    document.getElementById("AARHp").innerHTML=rivalPokemonHealth + " Hp";
     setRivalCounters(rivalPokemon);
 }
 function setGamePlayer(){
      /*Set Player Area*/
-    document.getElementById("activeAreaHp").innerHTML=myPokemonHealth + " Hp";
+    document.getElementById("AAPHp").innerHTML=myPokemonHealth + " Hp";
 }
 
 
 function attack1(){
     /* Get myPokemons attack power */
     let PWR = myPokemon._attack1PWR;
+
+
+    /*Special javaScript here for special attacks */
+    
+    
     /* Calculate for weakness and resitance */
     let damage =damageCalculations(PWR, myPokemon, rivalPokemon);
 
     /*Inflict Damage to Rivals Pokemon */
-    rivalPokemonHealth -= damage;
+    rivalPokemon.health -= damage;
 
     /*Set Counters for rivalpokemonObject */
     rivalPokemon.counters += damage;
 
     /*Set HTML Graphics for Counters */
     setRivalCounters(rivalPokemon);
-    
+
     /*Set HTML Graphics for Health */
-
-
-
-    document.getElementById("activeAreaHp").innerHTML = "its working";
-    document.getElementById("activeHp").innerHTML ="its working";
+    setRivalHealth(rivalPokemon);
 }
 
 
@@ -79,8 +81,6 @@ function setActivePokemon(){
     console.log(myPokemonHealth);
     console.log(rivalPokemonHealth);
     bulbasaurAttacks();
-    console.log('testing');
-    document.getElementById("activeAreaHp").innerHTML = myPokemonHealth + " Hp";
-    document.getElementById("activeHp").innerHTML ="its working";
+    
 }
 
