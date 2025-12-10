@@ -1,6 +1,7 @@
 
 import bulbasaurAttacks from "./JavaScriptFolder/javaScript.js";
 import CardBasic from "./JavaScriptFolder/CardBasic.js";
+import {setCounters, setRivalCounters, setPlayerCounters} from "./JavaScriptFolder/counterCalculations.js";
 
 
 let myPokemon = new CardBasic("Squirtle", 100, "water", "electric", "fire", 10, 10);
@@ -29,16 +30,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function setGame(){
-    document.getElementById("rivalHp").innerHTML=rivalPokemonHealth;
+    setGameRival();
+    setGamePlayer();
+
+
+   
 }
 
+function setGameRival(){
+    /*Set Rival Area */
+    document.getElementById("rivalHp").innerHTML=rivalPokemonHealth + " Hp";
+    setRivalCounters(rivalPokemon);
+}
+function setGamePlayer(){
+     /*Set Player Area*/
+    document.getElementById("activeAreaHp").innerHTML=myPokemonHealth + " Hp";
+}
+
+
 function attack1(){
-    
+    /* Get myPokemons attack power */
     let PWR = myPokemon._attack1PWR;
+    /* Calculate for weakness and resitance */
     let damage =damageCalculations(PWR, myPokemon, rivalPokemon);
-    console.log(" rival pokemon has " + rivalPokemonHealth + "hp left");
+
+    /*Inflict Damage to Rivals Pokemon */
     rivalPokemonHealth -= damage;
-    console.log(" rival pokemon has " + rivalPokemonHealth + "hp left");
+
+    /*Set Counters for rivalpokemonObject */
+    rivalPokemon.counters += damage;
+
+    /*Set HTML Graphics for Counters */
+    setRivalCounters(rivalPokemon);
+
     document.getElementById("activeAreaHp").innerHTML = "its working";
     document.getElementById("activeHp").innerHTML ="its working";
 }

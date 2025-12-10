@@ -2,7 +2,7 @@ import Card from "./Card.js";
 
 
 class CardBasic extends Card {
-    constructor(name, hp=10, type='normal', weakness='none', resistance='none', attack1=10, attack2=0){
+    constructor(name, hp=10, type='normal', weakness='none', resistance='none', attack1=10, attack2=0,){
         super(name);
         this._hp=hp;
         this._type=type;
@@ -12,6 +12,7 @@ class CardBasic extends Card {
         this._attack2PWR=attack2;
         this._knockedOut=false;
         this._counters=0;
+        this._health=hp;
     }
 
     get hp(){
@@ -44,7 +45,12 @@ class CardBasic extends Card {
     set knockOut(value){
         this._knockedOut=value;
     } 
-
+    get health(){
+        return this._health;
+    }
+    set health(value){
+        this._health=value;
+    }
     addCounters(damageCounters){
        this.counters+=damageCounters; 
     }
