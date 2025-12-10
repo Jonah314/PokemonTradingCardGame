@@ -2,7 +2,7 @@
 import bulbasaurAttacks from "./JavaScriptFolder/javaScript.js";
 import CardBasic from "./JavaScriptFolder/CardBasic.js";
 import {setCounters, setRivalCounters, setPlayerCounters} from "./JavaScriptFolder/counterCalculations.js";
-
+import damageCalculations from "./JavaScriptFolder/damageCalculations.js";
 
 let myPokemon = new CardBasic("Squirtle", 100, "water", "electric", "fire", 10, 10);
 
@@ -62,6 +62,10 @@ function attack1(){
 
     /*Set HTML Graphics for Counters */
     setRivalCounters(rivalPokemon);
+    
+    /*Set HTML Graphics for Health */
+
+
 
     document.getElementById("activeAreaHp").innerHTML = "its working";
     document.getElementById("activeHp").innerHTML ="its working";
@@ -80,14 +84,3 @@ function setActivePokemon(){
     document.getElementById("activeHp").innerHTML ="its working";
 }
 
-function damageCalculations(pwr,poke1,poke2 ){
-    let damageOutput= pwr;
-    if(poke1.type=== poke2.weakness){
-        damageOutput=pwr*2;
-        console.log("weakness attack doubled");
-    }else if (poke1.type === poke2.resistance){
-
-        console.log("resistance attack power reduced by 30");
-    }
-    return damageOutput;
-}
