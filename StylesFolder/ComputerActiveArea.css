@@ -1,0 +1,8 @@
+.ComputerArea{
+    background:rgb(255, 226, 226);
+    transform:rotate(180deg);
+    
+    max-width:1600px;
+    display:flex;
+    justify-content:center;
+}

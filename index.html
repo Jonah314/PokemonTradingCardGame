@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PokemonCardGame</title>
+    <link rel ="stylesheet" href ="./StylesFolder/Style.css">
+    <link rel ="stylesheet" href ="./StylesFolder/playerDivide.css">
+    <link rel ="stylesheet" href ="./StylesFolder/PlayerActiveArea.css">
+    <link rel ="stylesheet" href ="./StylesFolder/ComputerActiveArea.css">
+</head>
+
+<body>
+    <h1>Pokemon Card Game </h1>
+        <div class="ComputerArea">
+            <div class = "C_ActiveArea">
+                <div class ="P_ActiveBox">
+                    <div class = "CounterBox">
+                        
+                        <div class = "CounterImgBox">
+                            <div class = "fiftyDot">50</div>
+                        </div>
+                        <div class = "CounterImgBox">
+                            <div class = "tenDot">10</div>
+                        </div>
+                        <div class = "CounterImgBox">
+                            <div class = "tenDot">10</div>
+                        </div>
+                        <div class = "CounterImgBox">
+                            <div class = "tenDot">10</div>
+                        </div>
+                        <div class = "CounterImgBox">
+                            <div class = "tenDot">10</div>
+                        </div>
+
+                    </div>
+                    
+                    
+                    <div class = "cardBox">
+                        <img src = "Img/Pikachu.jpg">
+                    </div>
+                    
+                    <div class = "buttonBox">
+                        
+                            <div></div>
+                            <div class = "Hp"> 40/40</div>
+                            <div></div>
+                            
+                            <div >
+                                <button onclick = "attack1()">Attack</button>
+                            </div>
+                            <div >
+                                <button onclick = "attack2()" >Attack</button>
+                            </div>
+                            <div></div>
+                            <div>
+                                <button onclick = "retreat()">Retreat</button>
+                            </div>
+                        
+                    </div>
+
+
+                 </div>   
+            </div>
+        </div>
+
+        <!-- Player Divide-->
+        <div class = "playerDivide"> 
+            <div class="playerDivideImageContainer">
+                
+            </div>
+            
+        </div>
+
+
+        <div class = "PlayerArea">
+            <div class = "P_ActiveArea">
+                <div class ="P_ActiveBox">
+                    <div class = "CounterBox">
+                        
+                        <div class = "CounterImgBox">
+                            <div class = "fiftyDot">50</div>
+                        </div>
+                        <div class = "CounterImgBox">
+                            <div class = "tenDot">10</div>
+                        </div>
+                        <div class = "CounterImgBox">
+                            <div class = "tenDot">10</div>
+                        </div>
+                        <div class = "CounterImgBox">
+                            <div class = "tenDot">10</div>
+                        </div>
+                        <div class = "CounterImgBox">
+                            <div class = "tenDot">10</div>
+                        </div>
+
+                    </div>
+                    
+                    
+                    <div class = "cardBox">
+                        <img src = "Img/Pikachu.jpg">
+                    </div>
+                    
+                    <div class = "buttonBox">
+                        
+                            <div ></div>
+                            <div class = "Hp" id ="activeAreaHp"> 40/40</div>
+                            <div></div>
+                            
+                            <div >
+                                <button id="attackOne">Attack</button>
+                            </div>
+                            <div >
+                                <button  >Attack</button>
+                            </div>
+                            <div></div>
+                            <div>
+                                <button>Retreat</button>
+                            </div>
+                        
+                    </div>
+
+
+                    
+                </div>
+            </div>
+        </div>
+
+
+        <div> 
+            <h1> Testing aera </h1>
+            <p id = "demo"> testing...</p>
+            <p id ="activeHp"></p>
+        </div>
+    
+    <script type="module" src="./JavaScriptFolder/GameFlow.js?v=1.0"></script>
+    
+    
+</body>
+
+</html>
