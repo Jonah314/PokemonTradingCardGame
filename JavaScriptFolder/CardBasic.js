@@ -5,12 +5,12 @@ class CardBasic extends Card {
     constructor(name, hp=10, type='normal', weakness='none', resistance='none', attack1=10, attack2=0){
         super(name);
         this._hp=hp;
-        this.type=type;
-        this.weakness=weakness;
-        this.resistance=resistance;
-        this.attack1=attack1;
-        this.attack2=attack2;
-        this.knockedOut=false;
+        this._type=type;
+        this._weakness=weakness;
+        this._resistance=resistance;
+        this._attack1PWR=attack1;
+        this._attack2PWR=attack2;
+        this._knockedOut=false;
         this._counters=0;
     }
 
@@ -23,16 +23,32 @@ class CardBasic extends Card {
     set counters(newCount){
         this._counters = newCount;
     }
-
+    get type(){
+        return this._type;
+    }
+    get weakness(){
+        return this._weakness;
+    }
+    get resistance(){
+        return this._resistance;
+    }
+    get attack1PWR(){
+        return this._attack1PWR;
+    }
+    get attack2PWR(){
+        return this._attack2PWR;
+    }
+    get knockedOut() {
+    return this._knockedOut;
+}
+    set knockOut(value){
+        this._knockedOut=value;
+    } 
 
     addCounters(damageCounters){
-       this.counters+=damageCounters;
-
-       
+       this.counters+=damageCounters; 
     }
-     knockOut() {
-            console.log('your pokemon is knocked out');
-        }
+    
     
 }
 
