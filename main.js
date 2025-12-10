@@ -21,8 +21,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("setGame").addEventListener("click", () => {
+        setGame();
+    });
+});
+
+
+function setGame(){
+    document.getElementById("rivalHp").innerHTML=rivalPokemonHealth;
+}
 
 function attack1(){
+    
     let PWR = myPokemon._attack1PWR;
     let damage =damageCalculations(PWR, myPokemon, rivalPokemon);
     console.log(" rival pokemon has " + rivalPokemonHealth + "hp left");
