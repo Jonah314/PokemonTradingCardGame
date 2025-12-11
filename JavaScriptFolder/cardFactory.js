@@ -21,10 +21,37 @@ function createBulbasaur() {
             console.log("I healed myself");
         }
     }
-
     card.attackObjectOne.specialAttack = leechSeed;
 
     return card;
 }
 
-export { createBulbasaur };
+function createCharmander(){
+    const card = new CardBasic(
+        "Charmander",
+        50,
+        "fire",
+        "water",
+        "none",
+        "Scratch",
+        10,
+        "Ember",
+        30,
+        "./Img/charmander.jpg"
+    );
+    function ember() {
+        console.log("special attack used");
+        console.log("I burnt up an Energy Card");
+    }
+    card.attackObjectTwo.specialAttack = ember;
+
+    return card;
+}
+
+
+
+
+
+
+
+export { createBulbasaur,createCharmander };

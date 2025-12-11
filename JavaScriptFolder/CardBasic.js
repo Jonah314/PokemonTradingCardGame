@@ -1,8 +1,10 @@
 import Card from "./Card.js";
 class AttackObject{
-    constructor(attackName, attackPWR){
+    /* AR taught me that I can assign default values in the constructor */
+    constructor(attackName, attackPWR,specialAttack = () => {}){
         this._attackName = attackName;
         this._attackPWR=attackPWR;
+        this.specialAttack=specialAttack;
     }
     get attackName(){
         return this._attackName;

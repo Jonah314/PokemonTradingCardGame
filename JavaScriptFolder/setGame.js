@@ -1,0 +1,48 @@
+import {setCounters, setRivalCounters, setPlayerCounters} from "./counterCalculations.js";
+
+
+function setGame(myPokemon,rivalPokemon){
+    setGameRival(rivalPokemon);
+    setGamePlayer(myPokemon);
+
+
+  
+}
+
+function setGameRival(rivalPokemon){
+    /*Set Rival Area */
+    document.getElementById("AARHp").innerHTML=rivalPokemon.health + " Hp";
+    setRivalCounters(rivalPokemon);
+
+    /*Set Card Graphic */
+    document.getElementById("AARGraphic").src = rivalPokemon.imgAdress;
+
+    /*Set Attack names */
+    setAttackNames(rivalPokemon, "AAR");
+}
+function setGamePlayer(myPokemon){
+     /*Set Player Area*/
+    document.getElementById("AAPHp").innerHTML=myPokemon.health + " Hp";
+    setPlayerCounters(myPokemon);
+
+    /*Set Card Graphic */
+    document.getElementById("AAPGraphic").src = myPokemon.imgAdress;
+
+    /*Set Attack names */
+    setAttackNames(myPokemon, "AAP");
+}
+
+
+function setAttackNames(pokemon,prefix){
+
+    document.getElementById(`${prefix}AttackOne`).innerHTML=pokemon.attackObjectOne.attackName;
+    if(pokemon.attackObjectTwo.attackName){
+    document.getElementById(`${prefix}AttackTwo`).innerHTML=pokemon.attackObjectTwo.attackName;
+    }else{
+        document.getElementById(`${prefix}AttackTwo`).innerHTML="";
+    }
+}
+
+
+
+export {setGame};

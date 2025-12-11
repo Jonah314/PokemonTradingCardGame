@@ -4,49 +4,35 @@ import CardBasic from "./JavaScriptFolder/CardBasic.js";
 import {setCounters, setRivalCounters, setPlayerCounters} from "./JavaScriptFolder/counterCalculations.js";
 import {setPokemonHealth, setRivalHealth,setPlayerHealth} from "./JavaScriptFolder/setPokemonHealth.js";
 import damageCalculations from "./JavaScriptFolder/damageCalculations.js";
-import {createBulbasaur } from "./JavaScriptFolder/cardFactory.js";
+import {createBulbasaur, createCharmander } from "./JavaScriptFolder/cardFactory.js";
+import {setGame} from "./JavaScriptFolder/setGame.js"
 
-let myPokemon = createBulbasaur();
+
+let myPokemon = createCharmander();
 
 let rivalPokemon = createBulbasaur();
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("attackOne").addEventListener("click", () => {
+    document.getElementById("AAPAttackOne").addEventListener("click", () => {
         attack1();
     });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("attackTwo").addEventListener("click", () => {
+    document.getElementById("AAPAttackTwo").addEventListener("click", () => {
         setActivePokemon();
     });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("setGame").addEventListener("click", () => {
-        setGame();
+        setGame(myPokemon,rivalPokemon);
     });
 });
 
 
-function setGame(){
-    setGameRival();
-    setGamePlayer();
 
-
-  
-}
-
-function setGameRival(){
-    /*Set Rival Area */
-    document.getElementById("AARHp").innerHTML=rivalPokemon.health + " Hp";
-    setRivalCounters(rivalPokemon);
-}
-function setGamePlayer(){
-     /*Set Player Area*/
-    document.getElementById("AAPHp").innerHTML=myPokemon.health + " Hp";
-}
 
 
 function attack1(){
