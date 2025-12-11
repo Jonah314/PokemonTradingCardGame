@@ -10,10 +10,11 @@ class AttackObject{
     get attackPWR(){
         return this._attackPWR;
     }
+
 }
 
 class CardBasic extends Card {
-    constructor(name, hp=10, type='normal', weakness='none', resistance='none', attackOneName="tackle", attack1=10, attackTwoName,attack2=0,imgAdress){
+    constructor(name, hp=10, type='normal', weakness='none', resistance='none', attackOneName="tackle", attack1=10, attackTwoName="",attack2=0,imgAdress){
         super(name);
         this._hp=hp;
         this._type=type;
@@ -22,7 +23,7 @@ class CardBasic extends Card {
         this._knockedOut=false;
         this._counters=0;
         this._health=hp;
-        this._imgAdress-imgAdress;
+        this._imgAdress=imgAdress;
         this._attackObjectOne = new AttackObject(attackOneName,attack1);
         this._attackObjectTwo = new AttackObject(attackTwoName,attack2);
     }

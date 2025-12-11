@@ -4,12 +4,12 @@ import CardBasic from "./JavaScriptFolder/CardBasic.js";
 import {setCounters, setRivalCounters, setPlayerCounters} from "./JavaScriptFolder/counterCalculations.js";
 import {setPokemonHealth, setRivalHealth,setPlayerHealth} from "./JavaScriptFolder/setPokemonHealth.js";
 import damageCalculations from "./JavaScriptFolder/damageCalculations.js";
+import {createBulbasaur } from "./JavaScriptFolder/cardFactory.js";
 
-let myPokemon = new CardBasic("Squirtle", 100, "water", "electric", "fire", 10, 10);
+let myPokemon = createBulbasaur();
 
-let rivalPokemon = new CardBasic("charmander",100, "fire","water","grass",30, 10);
-let myPokemonHealth = myPokemon.hp - myPokemon.counters;
-let rivalPokemonHealth = rivalPokemon.hp -rivalPokemon.counters;
+let rivalPokemon = createBulbasaur();
+
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("attackOne").addEventListener("click", () => {
@@ -40,12 +40,12 @@ function setGame(){
 
 function setGameRival(){
     /*Set Rival Area */
-    document.getElementById("AARHp").innerHTML=rivalPokemonHealth + " Hp";
+    document.getElementById("AARHp").innerHTML=rivalPokemon.health + " Hp";
     setRivalCounters(rivalPokemon);
 }
 function setGamePlayer(){
      /*Set Player Area*/
-    document.getElementById("AAPHp").innerHTML=myPokemonHealth + " Hp";
+    document.getElementById("AAPHp").innerHTML=myPokemon.health + " Hp";
 }
 
 
@@ -55,7 +55,7 @@ function attack1(){
 
 
     /*Special javaScript here for special attacks */
-    
+    myPokemon._attackObjectOne.specialAttack();
     
     /* Calculate for weakness and resitance */
     let damage =damageCalculations(PWR, myPokemon, rivalPokemon);
@@ -71,16 +71,13 @@ function attack1(){
 
     /*Set HTML Graphics for Health */
     setRivalHealth(rivalPokemon);
+    setPlayerHealth(myPokemon);
 }
 
 
 
 function setActivePokemon(){
-    console.log(myPokemon.weakness);
-    console.log(myPokemon.name);
-    console.log(myPokemonHealth);
-    console.log(rivalPokemonHealth);
-    bulbasaurAttacks();
+    
     
 }
 
