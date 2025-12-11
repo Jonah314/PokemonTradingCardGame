@@ -18,6 +18,7 @@ function createBulbasaur() {
         console.log("special attack used");
         if(card.health<40){
             card.health +=10;
+            card.counters -=10;
             console.log("I healed myself");
         }
     }
