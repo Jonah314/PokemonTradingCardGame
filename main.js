@@ -15,13 +15,13 @@ let rivalPokemon = createBulbasaur();
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("AAPAttackOne").addEventListener("click", () => {
-        attack1();
+        playerAttack("One",myPokemon, rivalPokemon);
     });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("AAPAttackTwo").addEventListener("click", () => {
-        setActivePokemon();
+        playerAttack("Two",myPokemon, rivalPokemon);
     });
 });
 
@@ -35,30 +35,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-function attack1(){
+function playerAttack(Num,Attacker,Defender){
     /* Get myPokemons attack power */
-    let PWR = myPokemon.attackObjectOne._attackPWR;
-
+    let PWR = Attacker[`attackObject${Num}`]._attackPWR;
 
     /*Special javaScript here for special attacks */
-    myPokemon._attackObjectOne.specialAttack();
+    Attacker[`attackObject${Num}`].specialAttack();
     
     /* Calculate for weakness and resitance */
-    let damage =damageCalculations(PWR, myPokemon, rivalPokemon);
+    let damage =damageCalculations(PWR, Attacker, Defender);
 
     /*Inflict Damage to Rivals Pokemon */
-    rivalPokemon.health -= damage;
+    Attacker.health -= damage;
 
     /*Set Counters for rivalpokemonObject */
-    rivalPokemon.counters += damage;
+    Attacker.counters += damage;
 
     /*Set HTML Graphics for Counters */
-    setRivalCounters(rivalPokemon);
+    setRivalCounters(Defender);
 
     /*Set HTML Graphics for Health */
-    setRivalHealth(rivalPokemon);
-    setPlayerHealth(myPokemon);
+    setRivalHealth(Defender);
 }
+
+
 
 
 
