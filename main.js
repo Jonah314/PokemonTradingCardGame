@@ -1,11 +1,12 @@
 
 import bulbasaurAttacks from "./JavaScriptFolder/javaScript.js";
 import CardBasic from "./JavaScriptFolder/CardBasic.js";
-import {setCounters, setRivalCounters, setPlayerCounters} from "./JavaScriptFolder/counterCalculations.js";
-import {setPokemonHealth, setRivalHealth,setPlayerHealth} from "./JavaScriptFolder/setPokemonHealth.js";
-import damageCalculations from "./JavaScriptFolder/damageCalculations.js";
+
 import {createBulbasaur, createCharmander } from "./JavaScriptFolder/cardFactory.js";
-import {setGame} from "./JavaScriptFolder/setGame.js"
+import {setGame} from "./JavaScriptFolder/setGame.js";
+import {attack} from "./JavaScriptFolder/attack.js";
+import { setAllActiveAreaHealth, setRivalHealth } from "./JavaScriptFolder/setPokemonHealth.js";
+import { setCounters, setRivalCounters, setPlayerCounters} from "./JavaScriptFolder/counterCalculations.js";
 
 
 let myPokemon = createCharmander();
@@ -15,13 +16,33 @@ let rivalPokemon = createBulbasaur();
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("AAPAttackOne").addEventListener("click", () => {
-        playerAttack("One",myPokemon, rivalPokemon);
+        attack("One",myPokemon, rivalPokemon);
+        setAllActiveAreaHealth(myPokemon,rivalPokemon);
+        setCounters(myPokemon,rivalPokemon);
     });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("AAPAttackTwo").addEventListener("click", () => {
-        playerAttack("Two",myPokemon, rivalPokemon);
+        attack("Two",myPokemon, rivalPokemon);
+        setAllActiveAreaHealth(myPokemon,rivalPokemon);
+        setCounters(myPokemon,rivalPokemon);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("AARAttackOne").addEventListener("click", () => {
+        attack("One",rivalPokemon,myPokemon);
+        setAllActiveAreaHealth(myPokemon,rivalPokemon);
+        setCounters(myPokemon,rivalPokemon);
+        });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("AARAttackTwo").addEventListener("click", () => {
+        attack("Two",rivalPokemon, myPokemon);
+        setAllActiveAreaHealth(myPokemon,rivalPokemon);
+        setCounters(myPokemon,rivalPokemon);
     });
 });
 
@@ -35,35 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-function playerAttack(Num,Attacker,Defender){
-    /* Get myPokemons attack power */
-    let PWR = Attacker[`attackObject${Num}`]._attackPWR;
-
-    /*Special javaScript here for special attacks */
-    Attacker[`attackObject${Num}`].specialAttack();
-    
-    /* Calculate for weakness and resitance */
-    let damage =damageCalculations(PWR, Attacker, Defender);
-
-    /*Inflict Damage to Rivals Pokemon */
-    Defender.health -= damage;
-
-    /*Set Counters for rivalpokemonObject */
-    Defender.counters += damage;
-
-    /*Set HTML Graphics for Counters */
-    setRivalCounters(Defender);
-
-    /*Set HTML Graphics for Health */
-    setRivalHealth(Defender);
-}
 
 
 
 
 
-function setActivePokemon(){
-    
-    
-}
 

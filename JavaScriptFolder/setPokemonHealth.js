@@ -14,6 +14,10 @@ function setPlayerHealth(pokemon){
     setPokemonHealth(pokemon, "AAP");
 }
 
+function setAllActiveAreaHealth(myPokemon, rival){
+    setRivalHealth(rival);
+    setPlayerHealth(myPokemon);
+}
 
 
-export{setPokemonHealth, setRivalHealth,setPlayerHealth};
+export{setPokemonHealth, setRivalHealth,setPlayerHealth, setAllActiveAreaHealth};

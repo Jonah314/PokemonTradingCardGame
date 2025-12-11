@@ -1,6 +1,6 @@
 import CardBasic from "./CardBasic.js";
 
-function setCounters(rival, player){
+function setCounters(player,rival){
     setRivalCounters(rival);
     setPlayerCounters(player);
 
