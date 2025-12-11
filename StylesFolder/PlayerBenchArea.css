@@ -1,0 +1,57 @@
+.PlayerBench{
+    width:1600px;
+    height:250px;
+    display:grid;
+    grid-template-rows:30px 400px;
+    background:rgb(198, 198, 203);
+}
+
+.PlayerBenchArea{
+    
+    width:1600px;
+    max-width:1600px;
+    height:160px;
+    display:grid;
+    grid-template-columns: 150px repeat(5, 236px) 150px;
+    gap:20px;
+
+}
+
+.benchHeaders{
+    display:grid;
+    grid-template-columns: 150px repeat(6, 236px);
+    gap:20px;
+}
+
+
+.benchSeat{
+    width:236px;
+    height:auto;
+    display:grid;
+    grid-template-columns:136px, 100px;
+    border:1px solid black;
+}
+.deck{
+    width:150px;
+    border:1px solid black;
+}
+.discard{
+    width:150px;
+    border:1px solid black;
+}
+
+
+.seat{
+    
+    width:250px;
+    height:350px;
+    
+}
+
+.seat img{
+    width:150px;
+    object-fit:cover;
+    border-radius:15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
