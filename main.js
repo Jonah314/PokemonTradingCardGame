@@ -35,7 +35,7 @@ function setGame(){
     setGamePlayer();
 
 
-   
+  
 }
 
 function setGameRival(){
@@ -51,7 +51,7 @@ function setGamePlayer(){
 
 function attack1(){
     /* Get myPokemons attack power */
-    let PWR = myPokemon._attack1PWR;
+    let PWR = myPokemon.attackObjectOne._attackPWR;
 
 
     /*Special javaScript here for special attacks */
