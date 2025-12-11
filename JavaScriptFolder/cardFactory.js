@@ -16,7 +16,7 @@ function createBulbasaur() {
 
     function leechSeed() {
         console.log("special attack used");
-        if(card.health<400){
+        if(card.health<40){
             card.health +=10;
             console.log("I healed myself");
         }
