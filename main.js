@@ -46,10 +46,10 @@ function playerAttack(Num,Attacker,Defender){
     let damage =damageCalculations(PWR, Attacker, Defender);
 
     /*Inflict Damage to Rivals Pokemon */
-    Attacker.health -= damage;
+    Defender.health -= damage;
 
     /*Set Counters for rivalpokemonObject */
-    Attacker.counters += damage;
+    Defender.counters += damage;
 
     /*Set HTML Graphics for Counters */
     setRivalCounters(Defender);
