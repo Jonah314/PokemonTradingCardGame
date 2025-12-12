@@ -19,39 +19,82 @@
 
 .benchHeaders{
     display:grid;
-    grid-template-columns: 150px repeat(6, 236px);
+    grid-template-columns: 150px 236px 236px 236px 236px 236px 150px;
     gap:20px;
 }
 
 
 .benchSeat{
     width:236px;
-    height:auto;
+    
     display:grid;
-    grid-template-columns:136px, 100px;
-    border:1px solid black;
+    grid-template-columns:136px 1fr;
+    gap:0;
+    
 }
 .deck{
     width:150px;
-    border:1px solid black;
+    
 }
 .discard{
     width:150px;
-    border:1px solid black;
+   
 }
 
 
 .seat{
     
-    width:250px;
-    height:350px;
+    width:136px;
+    height:auto;
     
 }
 
 .seat img{
-    width:150px;
+    width:136px;
     object-fit:cover;
     border-radius:15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.deck img{
+    width:136px;
+    object-fit:cover;
+    border-radius:15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.benchImgContainer{
+    background-image: url("../Img/pokeball.png"); /* Sets the image */
+    background-repeat: no-repeat;           /* Prevents the image from tiling */
+    background-size: contain;                 /* Scales the image to cover the entire element */
+    background-position: center;            /* Centers the image within the element */
+    
+    width:100%;
+    height:100%;
+    border-radius:15px;
+    background-color:rgb(237, 213, 241);
+}
+.benchImgContainer img{
+    width:100%;
+    object-fit:cover;
+    border-radius:15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.benchHp{
+    text-align:center;
+}
+.benchDetails{
+    display:inline-block;
+    
+} 
+.PBEnergies{
+    text-align:center;
+}
+.PBEnergies h1{
+    font-size:16px;
+}
+.PBEnergies p{
+    margin:0;
 }
 
