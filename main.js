@@ -6,8 +6,14 @@ import { setGame } from "./JavaScriptFolder/setGame.js";
 import { attack } from "./JavaScriptFolder/attack.js";
 import { setAllActiveAreaHealth, setRivalHealth } from "./JavaScriptFolder/setPokemonHealth.js";
 import { setCounters, setRivalCounters, setPlayerCounters } from "./JavaScriptFolder/counterCalculations.js";
+import Deck from "./JavaScriptFolder/deck.js";
+import Player from "./JavaScriptFolder/player.js";
 
-let myPokemon = createCharmander();
+let myDeck = new Deck;
+let myPlayer = new Player("Jonah");
+myPlayer.setActivePokemon(myDeck);
+
+let myPokemon = myPlayer.AA[0];
 let rivalPokemon = createBulbasaur();
 
 document.addEventListener("DOMContentLoaded", () => {
