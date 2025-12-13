@@ -11,6 +11,7 @@ import { deckFactoryOvergrowth } from "./JavaScriptFolder/deckFactory.js";
 import Player from "./JavaScriptFolder/player.js";
 
 let myDeck = new Deck(deckFactoryOvergrowth);
+myDeck.shuffle();
 let myPlayer = new Player("Jonah");
 myPlayer.setActivePokemon(myDeck);
 
