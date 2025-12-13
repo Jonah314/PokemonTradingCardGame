@@ -15,7 +15,7 @@ function setGameRival(rivalPokemon){
     setRivalCounters(rivalPokemon);
 
     /*Set Card Graphic */
-    document.getElementById("AARGraphic").src = rivalPokemon.imgAdress;
+    document.getElementById("AARGraphic").src = rivalPokemon.imgAddress;
 
     /*Set Attack names */
     setAttackNames(rivalPokemon, "AAR");
@@ -26,7 +26,7 @@ function setGamePlayer(myPokemon){
     setPlayerCounters(myPokemon);
 
     /*Set Card Graphic */
-    document.getElementById("AAPGraphic").src = myPokemon.imgAdress;
+    document.getElementById("AAPGraphic").src = myPokemon.imgAddress;
 
     /*Set Attack names */
     setAttackNames(myPokemon, "AAP");

@@ -16,7 +16,7 @@ class AttackObject{
 }
 
 class CardBasic extends Card {
-    constructor(name, hp=10, type='normal', weakness='none', resistance='none', attackOneName="tackle", attack1=10, attackTwoName="",attack2=0,imgAdress){
+    constructor(name, hp=10, type='normal', weakness='none', resistance='none', attackOneName="tackle", attack1=10, attackTwoName="",attack2=0,imgAddress){
         super(name);
         this._hp=hp;
         this._type=type;
@@ -25,7 +25,7 @@ class CardBasic extends Card {
         this._knockedOut=false;
         this._counters=0;
         this._health=hp;
-        this._imgAdress=imgAdress;
+        this._imgAddress=imgAddress;
         this._attackObjectOne = new AttackObject(attackOneName,attack1);
         this._attackObjectTwo = new AttackObject(attackTwoName,attack2);
     }
@@ -60,8 +60,8 @@ class CardBasic extends Card {
     set health(value){
         this._health=value;
     }
-    get imgAdress(){
-        return this._imgAdress;
+    get imgAddress(){
+        return this._imgAddress;
     }
 
     get attackObjectOne(){

@@ -1,5 +1,6 @@
 import CardBasic from "./CardBasic.js";
 
+
 function createBulbasaur() {
     const card = new CardBasic(
         "Bulbasaur",

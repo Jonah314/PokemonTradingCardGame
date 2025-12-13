@@ -7,9 +7,10 @@ import { attack } from "./JavaScriptFolder/attack.js";
 import { setAllActiveAreaHealth, setRivalHealth } from "./JavaScriptFolder/setPokemonHealth.js";
 import { setCounters, setRivalCounters, setPlayerCounters } from "./JavaScriptFolder/counterCalculations.js";
 import Deck from "./JavaScriptFolder/deck.js";
+import { deckFactoryOvergrowth } from "./JavaScriptFolder/deckFactory.js";
 import Player from "./JavaScriptFolder/player.js";
 
-let myDeck = new Deck;
+let myDeck = new Deck(deckFactoryOvergrowth);
 let myPlayer = new Player("Jonah");
 myPlayer.setActivePokemon(myDeck);
 

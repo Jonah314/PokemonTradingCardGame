@@ -1,30 +1,25 @@
-import { createBulbasaur,createCharmander } from "./cardFactory.js";
-
-
-
+ 
+// Deck.js
 class Deck {
-    cards=[];
-
-    constructor(){
-        this.initCards();
+    /*In my constructor i am taking in a deckFactory function to create my deck from the factory */
+    constructor(deckFactory) {
+        this.cards = deckFactory();
     }
 
-    initCards(){
-        console.log("Create a bunch of cards here");
-        this.cards.push(createCharmander());
-        this.cards.push(createBulbasaur());
-        this.cards.push(createCharmander());
-        this.cards.push(createBulbasaur());
-        this.cards.push(createCharmander());
+    shuffle() {
+        for (let i = this.cards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
+        }
     }
 
-    draw(){
+    draw() {
         return this.cards.pop();
     }
+
+    get size() {
+        return this.cards.length;
+    }
 }
-
-let myDeck = new Deck;
-console.log(myDeck.cards);
-
 
 export default Deck;
