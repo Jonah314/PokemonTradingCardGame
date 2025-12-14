@@ -1,9 +1,10 @@
 import {setCounters, setRivalCounters, setPlayerCounters} from "./counterCalculations.js";
 import { setBench } from "./setBenchPokemon.js";
+import { setHandGraphics } from "./setHandGraphics.js";
 
-function setGame(myPokemon,rivalPokemon, benchArray){
+function setGame(myPokemon,rivalPokemon, benchArray,player){
     setGameRival(rivalPokemon);
-    setGamePlayer(myPokemon, benchArray);
+    setGamePlayer(myPokemon, benchArray, player);
 
 
   
@@ -20,7 +21,7 @@ function setGameRival(rivalPokemon){
     /*Set Attack names */
     setAttackNames(rivalPokemon, "AAR");
 }
-function setGamePlayer(myPokemon,benchArray){
+function setGamePlayer(myPokemon,benchArray,player){
      /*Set Player Area*/
     document.getElementById("AAPHp").innerHTML=myPokemon.health + " Hp";
     setPlayerCounters(myPokemon);
@@ -33,6 +34,7 @@ function setGamePlayer(myPokemon,benchArray){
 
     /* Set Bench Pokemon & name */
     setBench("P", benchArray);
+    setHandGraphics(player);
 }
 
 

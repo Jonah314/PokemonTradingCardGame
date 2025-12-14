@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Set game button
     document.getElementById("setGame")?.addEventListener("click", () => {
-        setGame(myPokemon, rivalPokemon,benchArray);
+        setGame(myPokemon, rivalPokemon,benchArray, myPlayer);
     });
 
 });
