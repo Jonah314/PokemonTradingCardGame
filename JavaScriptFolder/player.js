@@ -29,6 +29,16 @@ class Player{
         this[seat].push(deck.draw());
         console.log("my bench Pokemon is " + this[seat][0].name);
     }
+    setInitHand(deck){
+        this.draw(deck,5);
+    }
+
+    draw(deck,amount=1){
+        while (amount>0){
+            this.hand.push(deck.draw());
+            amount--;
+        }
+    }
 }
 
 export default Player;

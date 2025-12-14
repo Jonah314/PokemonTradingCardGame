@@ -19,8 +19,17 @@ myPlayer.setBenchPokemon(myDeck,'b2');
 myPlayer.setBenchPokemon(myDeck, 'b3');
 myPlayer.setBenchPokemon(myDeck, 'b4');
 myPlayer.setBenchPokemon(myDeck,'b5');
+myPlayer.setInitHand(myDeck);
+console.log("I Drew", myPlayer.hand);
+
 
 let rivalPokemon = createBulbasaur();
+
+
+
+
+
+
 
 
 /* Don't Touch. Use setActive and setBench to set the pokemon*/
