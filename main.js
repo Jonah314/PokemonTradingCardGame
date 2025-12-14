@@ -9,11 +9,16 @@ import { setCounters, setRivalCounters, setPlayerCounters } from "./JavaScriptFo
 import Deck from "./JavaScriptFolder/deck.js";
 import { deckFactoryOvergrowth } from "./JavaScriptFolder/deckFactory.js";
 import Player from "./JavaScriptFolder/player.js";
+import { setBenchButton } from "./JavaScriptFolder/setBenchButton.js";
+
 
 let myDeck = new Deck(deckFactoryOvergrowth);
 myDeck.shuffle();
 let myPlayer = new Player("Jonah");
+
 myPlayer.setActivePokemon(myDeck);
+
+
 myPlayer.setBenchPokemon(myDeck, 'b1');
 myPlayer.setBenchPokemon(myDeck,'b2');
 myPlayer.setBenchPokemon(myDeck, 'b3');
@@ -72,6 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("AARAttackTwo")?.addEventListener("click", () => {
         handleAttack("Two", rivalPokemon, myPokemon);
     });
+    
+    //Set Bench Pokemon Buttons
+    document.getElementById("Pb1button")?.addEventListener("click", ()=>{
+        setBenchButton(myPlayer,"Pb1",myPokemon, rivalPokemon,benchArray);
+    })
 
     // Set game button
     document.getElementById("setGame")?.addEventListener("click", () => {

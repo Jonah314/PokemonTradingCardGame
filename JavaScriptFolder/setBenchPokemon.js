@@ -33,4 +33,6 @@ function setBenchPokemonHp(suffix,benchArray){
     document.getElementById(`${suffix}b5Hp`).innerHTML = `Hp= ${benchArray[4].health}`;
 }
 
+
+
 export {setBench};
