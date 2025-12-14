@@ -22,7 +22,12 @@ class Player{
 
     setActivePokemon(deck){
         this.AA.push(deck.draw());
-        console.log("my active pokemon is" + this.AA[0].name);
+        console.log("my active pokemon is " + this.AA[0].name);
+    }
+
+    setBenchPokemon(deck, seat){
+        this[seat].push(deck.draw());
+        console.log("my bench Pokemon is " + this[seat][0].name);
     }
 }
 

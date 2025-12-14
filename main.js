@@ -14,9 +14,28 @@ let myDeck = new Deck(deckFactoryOvergrowth);
 myDeck.shuffle();
 let myPlayer = new Player("Jonah");
 myPlayer.setActivePokemon(myDeck);
+myPlayer.setBenchPokemon(myDeck, 'b1');
+myPlayer.setBenchPokemon(myDeck,'b2');
+myPlayer.setBenchPokemon(myDeck, 'b3');
+myPlayer.setBenchPokemon(myDeck, 'b4');
+myPlayer.setBenchPokemon(myDeck,'b5');
 
-let myPokemon = myPlayer.AA[0];
 let rivalPokemon = createBulbasaur();
+
+
+/* Don't Touch. Use setActive and setBench to set the pokemon*/
+let myPokemon = myPlayer.AA[0];
+let b1Pokemon = myPlayer.b1[0];
+let b2Pokemon = myPlayer.b2[0];
+let b3Pokemon = myPlayer.b3[0];
+let b4Pokemon = myPlayer.b4[0];
+let b5Pokemon = myPlayer.b5[0];
+let benchArray = [b1Pokemon,b2Pokemon,b3Pokemon,b4Pokemon,b5Pokemon];
+console.log(benchArray);
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -47,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Set game button
     document.getElementById("setGame")?.addEventListener("click", () => {
-        setGame(myPokemon, rivalPokemon);
+        setGame(myPokemon, rivalPokemon,benchArray);
     });
 
 });

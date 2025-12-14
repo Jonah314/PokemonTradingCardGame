@@ -21,8 +21,15 @@
     display:grid;
     grid-template-columns: 150px 236px 236px 236px 236px 236px 150px;
     gap:20px;
-}
 
+}
+.benchHeaders p {
+    margin:10px;
+}
+.benchHeaderName{
+    display:grid;
+    grid-template-columns: 136px 1fr;
+}
 
 .benchSeat{
     width:236px;
