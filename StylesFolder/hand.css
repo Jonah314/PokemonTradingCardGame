@@ -1,0 +1,37 @@
+.hand{
+    display:flex;
+    padding:3rem;
+    overflow-x:scroll;
+}
+
+.handCardBox{
+    display:flex;
+    position:relative;
+    flex-direction:column;
+    border-radius:10px;
+    width:250px;
+    height:350px;
+    min-width:250px;
+    
+    box-shadow:-1rem 0 1rem #00000070;
+    transition: .2s ease;
+}
+
+.handCardBox:hover{
+    transform: translateY(-1rem);
+}
+.handCardBox:hover~.handCardBox{
+    transform:translateX(130px);
+}
+.handCardBox:not(:first-child){
+    margin-left:-130px;
+}
+
+
+.handCardBox img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:15px;
+    box-shadow: none;
+}

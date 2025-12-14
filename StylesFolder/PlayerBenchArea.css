@@ -61,7 +61,11 @@
     object-fit:cover;
     border-radius:15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: transform .25s ease-in-out;
+}
 
+.seat img:hover{
+    transform:scale(1.3);
 }
 .deck img{
     width:136px;
