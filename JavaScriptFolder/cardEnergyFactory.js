@@ -1,10 +1,10 @@
 import CardEnergy from "./CardEnergy.js";
 
-/*createEnergy functio makes any basic function by taking its element/type and the number of energies
+/*createEnergy function makes any basic function by taking its element/type and the number of energies
 You want to create.  */
 function createEnergy(type, count) {
     const name = `${type[0].toUpperCase()}${type.slice(1)} Energy`;
-    const img = `./Img/fire_energy.jpg`;
+    const img = `./Img/${type}_energy.jpg`;
 
     return Array.from({ length: count }, () =>
         new CardEnergy(name, type, img)
