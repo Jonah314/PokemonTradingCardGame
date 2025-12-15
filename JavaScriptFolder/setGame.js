@@ -39,7 +39,7 @@ function setGamePlayer(myPokemon,benchArray,player){
     
 
     /* Set Bench Pokemon & name */
-    setBench("P", benchArray);
+    setBench(player);
     setHandGraphics(player);
 }
 

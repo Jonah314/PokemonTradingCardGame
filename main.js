@@ -14,7 +14,7 @@ import { setBenchButton } from "./JavaScriptFolder/setBenchButton.js";
 
 let myDeck = new Deck(deckFactoryOvergrowth);
 myDeck.shuffle();
-let myPlayer = new Player("Jonah");
+let myPlayer = new Player("Jonah","p");
 
 myPlayer.setActivePokemon(myDeck);
 
@@ -27,6 +27,7 @@ myPlayer.setBenchPokemon(myDeck,'b5');
 myPlayer.setInitHand(myDeck);
 console.log("I Drew", myPlayer.hand);
 
+console.log("Testing testing " +myPlayer.b1[0].imgAddress);
 
 let rivalPokemon = createBulbasaur();
 

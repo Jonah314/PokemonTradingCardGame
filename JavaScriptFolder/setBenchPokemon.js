@@ -1,37 +1,27 @@
-function setBench(suffix,benchArray){
-    setBenchPokemon(suffix,benchArray);
-    setBenchPokemonNames(suffix, benchArray);
-    setBenchPokemonHp(suffix, benchArray);
+function setBench(player) {
+    for (let i = 1; i <= 5; i++) {
+        const bench = player[`b${i}`];
+
+        // Skip if bench slot is missing or empty
+        if (!bench || bench.length === 0) continue;
+
+        const pokemon = bench[0];
+
+        //Generating/Getting Ids from the player Object
+        const imgEl  = document.getElementById(`${player.suffix}b${i}Graphic`);
+        const nameEl = document.getElementById(`${player.suffix}b${i}Name`);
+        const hpEl   = document.getElementById(`${player.suffix}b${i}Hp`);
+
+        /* In the future Create a file containing the set Bench Pokemon Energies and call that method here
+        on each individual bench pokemon*/
+
+        //fail-safe, incase Id doesnt exist
+        if (imgEl)  imgEl.src = pokemon.imgAddress;
+        if (nameEl) nameEl.textContent = pokemon.name;
+        if (hpEl)   hpEl.textContent = `Hp= ${pokemon.health}`;
+    }
 }
 
-
-
-function setBenchPokemon(suffix, benchArray){
-    /*variables I need, the Pokemon, and the bench seat and the html Id*/
-    
-    
-    document.getElementById(`${suffix}b1Graphic`).src= benchArray[0].imgAddress;
-    document.getElementById(`${suffix}b2Graphic`).src = benchArray[1].imgAddress;
-    document.getElementById(`${suffix}b3Graphic`).src= benchArray[2].imgAddress;
-    document.getElementById(`${suffix}b4Graphic`).src = benchArray[3].imgAddress;
-    document.getElementById(`${suffix}b5Graphic`).src = benchArray[4].imgAddress;
-}
-
-function setBenchPokemonNames(suffix, benchArray){
-    document.getElementById(`${suffix}b1Name`).innerHTML = benchArray[0].name;
-    document.getElementById(`${suffix}b2Name`).innerHTML = benchArray[1].name;
-    document.getElementById(`${suffix}b3Name`).innerHTML = benchArray[2].name;
-    document.getElementById(`${suffix}b4Name`).innerHTML = benchArray[3].name;
-    document.getElementById(`${suffix}b5Name`).innerHTML = benchArray[4].name;
-}
-
-function setBenchPokemonHp(suffix,benchArray){
-    document.getElementById(`${suffix}b1Hp`).innerHTML = `Hp= ${benchArray[0].health}`;
-    document.getElementById(`${suffix}b2Hp`).innerHTML = `Hp= ${benchArray[1].health}`;
-    document.getElementById(`${suffix}b3Hp`).innerHTML = `Hp= ${benchArray[2].health}`;
-    document.getElementById(`${suffix}b4Hp`).innerHTML = `Hp= ${benchArray[3].health}`;
-    document.getElementById(`${suffix}b5Hp`).innerHTML = `Hp= ${benchArray[4].health}`;
-}
 
 
 

@@ -1,23 +1,27 @@
 class Player{
-    name=""
-    hand=[];
-    AA=[];
-    b1=[];
-    b2=[];
-    b3=[];
-    b4=[];
-    b5=[];
-    prizes=[];
-    discard=[];
 
-    constructor(name){
+
+    constructor(name,suffix){
         this._name=name;
+        this._suffix=suffix;
+        this.hand=[];
+        this.AA=[];
+        this.b1=[];
+        this.b2=[]
+        this.b3=[];
+        this.b4=[];
+        this.b5=[];
+        this.prizes=[];
+        this.discard=[];
     }
     get name(){
         return this._name;
     }
     set name(myName){
         this._name=myName;
+    }
+    get suffix(){
+        return this._suffix;
     }
 
     setActivePokemon(deck){
@@ -26,8 +30,10 @@ class Player{
     }
 
     setBenchPokemon(deck, seat){
-        this[seat].push(deck.draw());
-        console.log("my bench Pokemon is " + this[seat][0].name);
+    if (!this[seat]) {
+        throw new Error(`Invalid bench seat: ${seat}`);
+    }
+    this[seat].push(deck.draw());
     }
     setInitHand(deck){
         this.draw(deck,5);
@@ -35,10 +41,13 @@ class Player{
 
     draw(deck,amount=1){
         while (amount>0){
-            this.hand.push(deck.draw());
+            const card = deck.draw();
+            if (!card) throw new Error("Deck is empty");
+            this.hand.push(card);
             amount--;
         }
     }
+    
 }
 
 export default Player;
