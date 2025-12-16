@@ -13,6 +13,10 @@ function setGame(myPlayer, rivalPlayer){
 
 /* Sets individual players up */
 function setGameSolo(player){
+    // If there are no cards in Active area then reset them
+    activeAreaChecker(player);
+
+
     /* Set Players Health, Graphic then Attack names */
     if(player.AA.length !== 0){
     document.getElementById(`AA${player.suffix}Hp`).innerHTML=player.AA[0].health + " Hp";
@@ -29,6 +33,17 @@ function setAttackNames(player){
     if(player.AA[0].attackObjectTwo.attackName){
     document.getElementById(`AA${player.suffix}AttackTwo`).innerHTML=player.AA[0].attackObjectTwo.attackName;
     }else{
+        document.getElementById(`AA${player.suffix}AttackTwo`).innerHTML="";
+    }
+}
+
+
+//This function checks if there is an Active Area pokemon and if not it resets the values
+function activeAreaChecker(player){
+    if(!player.AA[0]){
+        document.getElementById(`AA${player.suffix}Hp`).innerHTML= "_ Hp";
+        document.getElementById(`AA${player.suffix}Graphic`).src= "";
+        document.getElementById(`AA${player.suffix}AttackOne`).innerHTML= "";
         document.getElementById(`AA${player.suffix}AttackTwo`).innerHTML="";
     }
 }
