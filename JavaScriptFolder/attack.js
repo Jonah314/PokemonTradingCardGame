@@ -1,4 +1,4 @@
-
+import { textBoxUpdate } from "./textBox.js";
 import damageCalculations from "./damageCalculations.js";
 
 
@@ -37,6 +37,7 @@ function betterAttackFunction(Num,Attacker,Defender){
 
     /*Set Counters for rivalpokemonObject */
     Defender.AA[0].counters += damage;
+    textBoxUpdate(`${Attacker.AA[0].name} used ${Attacker.AA[0][`attackObject${Num}`]._attackName}!!`);
 
 }
 

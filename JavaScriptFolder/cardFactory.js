@@ -1,4 +1,5 @@
 import CardBasic from "./CardBasic.js";
+import { textBoxUpdate } from "./textBox.js";
 
 
 function createBulbasaur() {
@@ -16,7 +17,7 @@ function createBulbasaur() {
     );
 
     function leechSeed() {
-        console.log("special attack used");
+        
         if(card.health<40){
             card.health +=10;
             card.counters -=10;

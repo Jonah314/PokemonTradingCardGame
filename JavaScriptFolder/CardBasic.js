@@ -1,4 +1,6 @@
 import Card from "./Card.js";
+import { textBoxUpdate } from "./textBox.js";
+
 class AttackObject{
     /* AR taught me that I can assign default values in the constructor */
     constructor(attackName, attackPWR,specialAttack = () => {}){
@@ -13,6 +15,7 @@ class AttackObject{
         return this._attackPWR;
     }
    specialAttack(attacker,defender){
+        
         return this._attackPWR;
    }
 }
