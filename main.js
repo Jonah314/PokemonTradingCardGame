@@ -16,7 +16,9 @@ let myPlayer = new Player("Jonah","p");
 let myDeck = new Deck(deckFactoryOvergrowth);
 myDeck.shuffle();
 myPlayer.setInitHand(myDeck);
-
+console.log(myDeck instanceof Deck); // true
+console.log(myDeck.cards.length);    // > 0
+console.log(myPlayer.hand.length);
 
 
 /*Setting up Rival */
@@ -24,6 +26,7 @@ let rivalPlayer = new Player("Rival", "r");
 let rivalDeck = new Deck(deckFactoryOvergrowth);
 rivalDeck.shuffle();
 rivalPlayer.setInitHand(rivalDeck);
+console.log(myPlayer.hand);
 
 let rivalPokemon = createBulbasaur();
 rivalPlayer.setActivePokemon(rivalPokemon);
@@ -77,9 +80,18 @@ document.addEventListener("DOMContentLoaded", () => {
         setGame(myPlayer,rivalPlayer);
     })
 
+    //Set draw buttons
+    document.getElementById("pDrawButton")?.addEventListener("click", () => {
+        myPlayer.draw(myDeck);
+    
+        setGame(myPlayer,rivalPlayer);
+    });
+
     // Set game button
     document.getElementById("setGame")?.addEventListener("click", () => {
         setGame(myPlayer,rivalPlayer);
     });
+
+    
 
 });
