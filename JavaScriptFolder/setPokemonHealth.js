@@ -18,6 +18,10 @@ function setAllActiveAreaHealth(myPokemon, rival){
     setRivalHealth(rival);
     setPlayerHealth(myPokemon);
 }
+function betterSetAllActiveAreaHealth(player, rival){
+    
+    document.getElementById(`AA${rival.suffix}Hp`).innerHTML = rival.AA[0].health + " Hp";
+    document.getElementById(`AA${player.suffix}Hp`).innerHTML = player.AA[0].health + " Hp";
+}
 
-
-export{setPokemonHealth, setRivalHealth,setPlayerHealth, setAllActiveAreaHealth};
+export{setPokemonHealth, setRivalHealth,setPlayerHealth, setAllActiveAreaHealth,betterSetAllActiveAreaHealth};

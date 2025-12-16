@@ -3,52 +3,42 @@ import CardBasic from "./JavaScriptFolder/CardBasic.js";
 
 import { createBulbasaur, createCharmander } from "./JavaScriptFolder/cardFactory.js";
 import { setGame } from "./JavaScriptFolder/setGame.js";
-import { attack } from "./JavaScriptFolder/attack.js";
-import { setAllActiveAreaHealth, setRivalHealth } from "./JavaScriptFolder/setPokemonHealth.js";
-import { setCounters, setRivalCounters, setPlayerCounters } from "./JavaScriptFolder/counterCalculations.js";
+import { attack,betterAttackFunction } from "./JavaScriptFolder/attack.js";
+import { setAllActiveAreaHealth, setRivalHealth,betterSetAllActiveAreaHealth } from "./JavaScriptFolder/setPokemonHealth.js";
+import {setCounters} from "./JavaScriptFolder/counterCalculations.js";
 import Deck from "./JavaScriptFolder/deck.js";
 import { deckFactoryOvergrowth } from "./JavaScriptFolder/deckFactory.js";
 import Player from "./JavaScriptFolder/player.js";
 import { setBenchButton } from "./JavaScriptFolder/setBenchButton.js";
 
-
+/*Setting up Player */
+let myPlayer = new Player("Jonah","p");
 let myDeck = new Deck(deckFactoryOvergrowth);
 myDeck.shuffle();
-let myPlayer = new Player("Jonah","p");
-
-myPlayer.setActivePokemon(myDeck);
+myPlayer.setInitHand(myDeck);
 
 
+
+/*Setting up Rival */
+let rivalPlayer = new Player("Rival", "r");
+let rivalDeck = new Deck(deckFactoryOvergrowth);
+rivalDeck.shuffle();
+rivalPlayer.setInitHand(rivalDeck);
+
+let rivalPokemon = createBulbasaur();
+rivalPlayer.setActivePokemon(rivalPokemon);
+
+
+
+
+/* For testing purposes, will restructure later */
 myPlayer.setBenchPokemon(myDeck, 'b1');
 myPlayer.setBenchPokemon(myDeck,'b2');
 myPlayer.setBenchPokemon(myDeck, 'b3');
 myPlayer.setBenchPokemon(myDeck, 'b4');
 myPlayer.setBenchPokemon(myDeck,'b5');
-myPlayer.setInitHand(myDeck);
-console.log("I Drew", myPlayer.hand);
 
-console.log("Testing testing " +myPlayer.b1[0].imgAddress);
-
-let rivalPokemon = createBulbasaur();
-
-
-
-
-
-
-
-
-/* Don't Touch. Use setActive and setBench to set the pokemon*/
-let myPokemon = myPlayer.AA[0];
-let b1Pokemon = myPlayer.b1[0];
-let b2Pokemon = myPlayer.b2[0];
-let b3Pokemon = myPlayer.b3[0];
-let b4Pokemon = myPlayer.b4[0];
-let b5Pokemon = myPlayer.b5[0];
-let benchArray = [b1Pokemon,b2Pokemon,b3Pokemon,b4Pokemon,b5Pokemon];
-console.log(benchArray);
-
-
+console.log("my bench pokemon are:", myPlayer.b1[0]);
 
 
 
@@ -56,37 +46,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Helper: run attack + update UI
     const handleAttack = (move, attacker, defender) => {
-        attack(move, attacker, defender);
-        setAllActiveAreaHealth(myPokemon, rivalPokemon);
-        setCounters(myPokemon, rivalPokemon);
+        betterAttackFunction(move, attacker, defender);
+        betterSetAllActiveAreaHealth(myPlayer, rivalPlayer);
+        setCounters(myPlayer, rivalPlayer);
     };
 
     // Player attack buttons
-    document.getElementById("AAPAttackOne")?.addEventListener("click", () => {
-        handleAttack("One", myPokemon, rivalPokemon);
+    document.getElementById("AApAttackOne")?.addEventListener("click", () => {
+        handleAttack("One", myPlayer, rivalPlayer);
     });
 
-    document.getElementById("AAPAttackTwo")?.addEventListener("click", () => {
-        handleAttack("Two", myPokemon, rivalPokemon);
+    document.getElementById("AApAttackTwo")?.addEventListener("click", () => {
+        handleAttack("Two", myPlayer, rivalPlayer);
     });
 
     // Rival attack buttons
-    document.getElementById("AARAttackOne")?.addEventListener("click", () => {
-        handleAttack("One", rivalPokemon, myPokemon);
+    document.getElementById("AArAttackOne")?.addEventListener("click", () => {
+        handleAttack("One", rivalPlayer, myPlayer);
     });
 
-    document.getElementById("AARAttackTwo")?.addEventListener("click", () => {
-        handleAttack("Two", rivalPokemon, myPokemon);
+    document.getElementById("AArAttackTwo")?.addEventListener("click", () => {
+        handleAttack("Two", rivalPlayer, myPlayer);
     });
     
     //Set Bench Pokemon Buttons
-    document.getElementById("Pb1button")?.addEventListener("click", ()=>{
-        setBenchButton(myPlayer,"Pb1",myPokemon, rivalPokemon,benchArray);
+    document.getElementById("Pb1button")?.addEventListener("click", (e)=>{
+        const button = e.currentTarget;
+        
+        setBenchButton(myPlayer,button);
+        setGame(myPlayer,rivalPlayer);
     })
 
     // Set game button
     document.getElementById("setGame")?.addEventListener("click", () => {
-        setGame(myPokemon, rivalPokemon,benchArray, myPlayer);
+        setGame(myPlayer,rivalPlayer);
     });
 
 });

@@ -1,11 +1,12 @@
 import CardBasic from "./CardBasic.js";
 
-function damageCalculations(pwr,poke1,poke2 ){
+// Should take in player objects, 
+function damageCalculations(pwr, player,rival ){
     let damageOutput= pwr;
-    if(poke1.type=== poke2.weakness){
+    if(player.AA[0].type=== rival.AA[0].weakness){
         damageOutput=pwr*2;
         console.log("weakness attack doubled");
-    }else if (poke1.type === poke2.resistance){
+    }else if (player.AA[0].type === rival.AA[0].resistance){
 
         console.log("resistance attack power reduced by 30");
     }

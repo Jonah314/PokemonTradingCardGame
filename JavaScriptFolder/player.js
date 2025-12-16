@@ -24,8 +24,8 @@ class Player{
         return this._suffix;
     }
 
-    setActivePokemon(deck){
-        this.AA.push(deck.draw());
+    setActivePokemon(pokemon){
+        this.AA.push(pokemon);
         console.log("my active pokemon is " + this.AA[0].name);
     }
 

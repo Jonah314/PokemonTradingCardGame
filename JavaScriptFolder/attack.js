@@ -1,11 +1,11 @@
-import {setCounters, setRivalCounters, setPlayerCounters} from "./counterCalculations.js";
-import {setPokemonHealth, setRivalHealth,setPlayerHealth} from "./setPokemonHealth.js";
+
 import damageCalculations from "./damageCalculations.js";
 
 
+//need to change this to player information instead
 function attack(Num,Attacker,Defender){
     /* Get myPokemons attack power */
-    let PWR = Attacker[`attackObject${Num}`]._attackPWR;
+    let PWR = Attacker[`attackObject${Num}`].attackPWR;
 
     /*Special javaScript here for special attacks */
     Attacker[`attackObject${Num}`].specialAttack();
@@ -22,5 +22,21 @@ function attack(Num,Attacker,Defender){
 
 }
 
+function betterAttackFunction(Num,Attacker,Defender){
+    console.log(Attacker.AA[0][`attackObject${Num}`].attackPWR);
+    /* Get myPokemons attack power */
+    let PWR = Attacker.AA[0][`attackObject${Num}`].attackPWR;
 
-export {attack};
+    /*Special javaScript here for special attacks */
+    let damage =damageCalculations(PWR, Attacker, Defender);
+
+    /*Inflict Damage to Rivals Pokemon */
+    Defender.AA[0].health -= damage;
+
+    /*Set Counters for rivalpokemonObject */
+    Defender.AA[0].counters += damage;
+
+}
+
+
+export {attack, betterAttackFunction};

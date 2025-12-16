@@ -6,14 +6,20 @@ import { setGame } from "./setGame.js";
  /*I need to get the playerBench pokemon and set it to the active area pokemon*/ 
     
     /* Later I need to create a statement to check if the area is empty*/
-function setBenchButton(player, suffix,myPokemon,rivalPokemon, benchArray,){
+function setBenchButton(player, button){
+   // I need to check if the AA array is empty, if not Ill need to send an error message
+   if(!player.AA || !player.AA.length===0){
+        throw new Error("AA is not empty or does not exist");
+   }
+
    
-    let cardToMove=player.b1[0];
+    let bench = button.id.substring(1,3);
+    let cardToMove=player[`${bench}`][0];
     player.setActivePokemon(cardToMove);
 
+
     console.log('bench function was called');
-    myPokemon = player.AA[0];
-    setGame(myPokemon,rivalPokemon, benchArray,player);
+    
 }
 
 export {setBenchButton};

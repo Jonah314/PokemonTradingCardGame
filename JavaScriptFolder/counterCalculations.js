@@ -1,21 +1,30 @@
 import CardBasic from "./CardBasic.js";
 
 function setCounters(player,rival){
-    setRivalCounters(rival);
-    setPlayerCounters(player);
+    
+    if(rival.AA[0]){
+        applyCounters(rival);
+    }
+    applyCounters(rival);
+    if(player.AA[0]){
+        applyCounters(player);
+    }
+    
 
 }
 
-function applyCounters(pokemon, prefix) {
-    const counters = pokemon.counters;
 
+function applyCounters(player) {
+    
+    const counters = player.AA[0].counters;
+    const prefix = player.suffix;
     // Build references automatically: rc1..rc5 or pc1..pc5
     const slots = [
-        document.getElementById(`${prefix}1`),
-        document.getElementById(`${prefix}2`),
-        document.getElementById(`${prefix}3`),
-        document.getElementById(`${prefix}4`),
-        document.getElementById(`${prefix}5`)
+        document.getElementById(`${prefix}c1`),
+        document.getElementById(`${prefix}c2`),
+        document.getElementById(`${prefix}c3`),
+        document.getElementById(`${prefix}c4`),
+        document.getElementById(`${prefix}c5`)
     ];
 
     // Helper to reset all
@@ -148,13 +157,7 @@ function applyCounters(pokemon, prefix) {
 }
 
 
-function setRivalCounters(pokemon) {
-    applyCounters(pokemon, "rc");
-}
-
-function setPlayerCounters(pokemon) {
-    applyCounters(pokemon, "pc");
-}
 
 
-export { setCounters, setRivalCounters, setPlayerCounters };
+
+export {setCounters};

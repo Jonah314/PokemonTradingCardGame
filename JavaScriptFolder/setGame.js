@@ -1,56 +1,35 @@
-import {setCounters, setRivalCounters, setPlayerCounters} from "./counterCalculations.js";
+import {setCounters} from "./counterCalculations.js";
 import { setBench } from "./setBenchPokemon.js";
 import { setHandGraphics } from "./setHandGraphics.js";
 
 
-function setGame(myPokemon,rivalPokemon, benchArray,player){
-    setGameRival(rivalPokemon);
-    setGamePlayer(myPokemon, benchArray, player);
-
-
-  
+function setGame(myPlayer, rivalPlayer){
+    setGameSolo(myPlayer);
+    setGameSolo(rivalPlayer);
+    setCounters(myPlayer,rivalPlayer);
+    setBench(myPlayer);
+    setHandGraphics(myPlayer);
 }
 
-function setGameRival(rivalPokemon){
-    /*Set Rival Area */
-    document.getElementById("AARHp").innerHTML=rivalPokemon.health + " Hp";
-    setRivalCounters(rivalPokemon);
-
-    /*Set Card Graphic */
-    document.getElementById("AARGraphic").src = rivalPokemon.imgAddress;
-
-    /*Set Attack names */
-    setAttackNames(rivalPokemon, "AAR");
-}
-function setGamePlayer(myPokemon,benchArray,player){
-    myPokemon = player.AA[0]; 
-    /*Set Player Area*/
-    if(myPokemon){
-     document.getElementById("AAPHp").innerHTML=myPokemon.health + " Hp";
-    setPlayerCounters(myPokemon);
-
-    /*Set Card Graphic */
-    document.getElementById("AAPGraphic").src = myPokemon.imgAddress;
-
-    /*Set Attack names */
-    setAttackNames(myPokemon, "AAP");
-    } 
-        
-    
-
-    /* Set Bench Pokemon & name */
-    setBench(player);
-    setHandGraphics(player);
+/* Sets individual players up */
+function setGameSolo(player){
+    /* Set Players Health, Graphic then Attack names */
+    if(player.AA.length !== 0){
+    document.getElementById(`AA${player.suffix}Hp`).innerHTML=player.AA[0].health + " Hp";
+    document.getElementById(`AA${player.suffix}Graphic`).src=player.AA[0].imgAddress;
+    setAttackNames(player);
+    }else {
+        console.log(`${player.name} does not have any cards in the Acitve Area`);
+    }
 }
 
 
-function setAttackNames(pokemon,prefix){
-
-    document.getElementById(`${prefix}AttackOne`).innerHTML=pokemon.attackObjectOne.attackName;
-    if(pokemon.attackObjectTwo.attackName){
-    document.getElementById(`${prefix}AttackTwo`).innerHTML=pokemon.attackObjectTwo.attackName;
+function setAttackNames(player){
+    document.getElementById(`AA${player.suffix}AttackOne`).innerHTML=player.AA[0].attackObjectOne.attackName;
+    if(player.AA[0].attackObjectTwo.attackName){
+    document.getElementById(`AA${player.suffix}AttackTwo`).innerHTML=player.AA[0].attackObjectTwo.attackName;
     }else{
-        document.getElementById(`${prefix}AttackTwo`).innerHTML="";
+        document.getElementById(`AA${player.suffix}AttackTwo`).innerHTML="";
     }
 }
 
