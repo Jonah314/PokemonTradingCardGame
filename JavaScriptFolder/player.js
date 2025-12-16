@@ -1,5 +1,5 @@
 class Player{
-
+    
 
     constructor(name,suffix){
         this._name=name;
@@ -13,6 +13,7 @@ class Player{
         this.b5=[];
         this.prizes=[];
         this.discard=[];
+        this._status="none";
     }
     get name(){
         return this._name;
@@ -23,6 +24,13 @@ class Player{
     get suffix(){
         return this._suffix;
     }
+    get status(){
+        return this._status;
+    }
+    set status(newStatus){
+        this._status=newStatus;
+    }
+
 
     setActivePokemon(pokemon){
         this.AA.push(pokemon);
@@ -47,6 +55,19 @@ class Player{
             amount--;
         }
     }
+
+    knockout(){
+        this.AA[0].health=this.AA[0].hp;
+        this.AA[0].status="none";
+        
+        while (this.AA.length > 0){
+            let card = this.AA.pop();
+            this.discard.push(card);
+        }
+        
+    }
+
+    
     
 }
 

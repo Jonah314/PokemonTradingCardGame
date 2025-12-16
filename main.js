@@ -26,7 +26,9 @@ let rivalPlayer = new Player("Rival", "r");
 let rivalDeck = new Deck(deckFactoryOvergrowth);
 rivalDeck.shuffle();
 rivalPlayer.setInitHand(rivalDeck);
-console.log(myPlayer.hand);
+myPlayer.AA[0]=createBulbasaur();
+myPlayer.AA[1]=createBulbasaur();
+myPlayer.AA[2]=createCharmander();
 
 let rivalPokemon = createBulbasaur();
 rivalPlayer.setActivePokemon(rivalPokemon);
@@ -83,6 +85,13 @@ document.addEventListener("DOMContentLoaded", () => {
     //Set draw buttons
     document.getElementById("pDrawButton")?.addEventListener("click", () => {
         myPlayer.draw(myDeck);
+    
+        setGame(myPlayer,rivalPlayer);
+    });
+
+    //Set Discard Buttons
+      document.getElementById("AApDiscardButton")?.addEventListener("click", () => {
+        myPlayer.knockout(myDeck);
     
         setGame(myPlayer,rivalPlayer);
     });
