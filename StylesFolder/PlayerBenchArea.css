@@ -109,3 +109,21 @@
     margin:0;
 }
 
+.discardImgContainer{
+    background-image: url("../Img/pokeball.png"); /* Sets the image */
+    background-repeat: no-repeat;           /* Prevents the image from tiling */
+    background-size: contain;                 /* Scales the image to cover the entire element */
+    background-position: center;            /* Centers the image within the element */
+    
+    width:100%;
+    height:100%;
+    border-radius:15px;
+    background-color:rgb(209, 238, 255);
+}
+.discardImgContainer img{
+    width:100%;
+    object-fit:cover;
+    border-radius:15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
