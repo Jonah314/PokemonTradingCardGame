@@ -22,6 +22,7 @@ function createBulbasaur() {
             card.counters -=10;
             console.log("I healed myself");
         }
+        return 20
     }
     card.attackObjectOne.specialAttack = leechSeed;
 

@@ -10,15 +10,14 @@ import Deck from "./JavaScriptFolder/deck.js";
 import { deckFactoryOvergrowth } from "./JavaScriptFolder/deckFactory.js";
 import Player from "./JavaScriptFolder/player.js";
 import { setBenchButton } from "./JavaScriptFolder/setBenchButton.js";
+import { coinFlipper } from "./JavaScriptFolder/coinFlipper.js";
 
 /*Setting up Player */
 let myPlayer = new Player("Jonah","p");
 let myDeck = new Deck(deckFactoryOvergrowth);
 myDeck.shuffle();
 myPlayer.setInitHand(myDeck);
-console.log(myDeck instanceof Deck); // true
-console.log(myDeck.cards.length);    // > 0
-console.log(myPlayer.hand.length);
+;
 
 
 /*Setting up Rival */
@@ -88,6 +87,12 @@ document.addEventListener("DOMContentLoaded", () => {
     
         setGame(myPlayer,rivalPlayer);
     });
+     //Set flip button
+    document.getElementById("flip")?.addEventListener("click", () => {
+        coinFlipper();
+    });
+
+
 
     //Set Discard Buttons
       document.getElementById("AApDiscardButton")?.addEventListener("click", () => {

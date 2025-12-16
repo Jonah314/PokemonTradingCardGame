@@ -18,3 +18,41 @@
 .playerDivideImageContainer img{
     object-fit:contain;
 }
+
+.playerDivideColumns{
+    height:100%;
+    width:100%;
+    display:grid;
+    grid-template-columns:3fr 3fr 4fr 3fr 3fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.coinFlipper{
+
+}
+
+.playerDivideColumn{
+    height:100%;
+    width:100%;
+    display:flex;
+    justify-content:center;     
+    align-items:center;
+    
+}
+
+.coinFlipper{
+    height:80px;
+    width:80px;
+    border:2px solid black;
+    border-radius:50%;
+    background-color:white;
+    display:flex;
+    justify-content:center;     
+    align-items:center;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    text-align:center;
+}
+

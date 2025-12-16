@@ -4,7 +4,7 @@ class AttackObject{
     constructor(attackName, attackPWR,specialAttack = () => {}){
         this._attackName = attackName;
         this._attackPWR=attackPWR;
-        this.specialAttack=specialAttack;
+        
     }
     get attackName(){
         return this._attackName;
@@ -12,7 +12,9 @@ class AttackObject{
     get attackPWR(){
         return this._attackPWR;
     }
-
+   specialAttack(attacker,defender){
+        return this._attackPWR;
+   }
 }
 
 class CardBasic extends Card {

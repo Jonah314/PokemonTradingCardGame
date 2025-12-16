@@ -24,10 +24,12 @@ function attack(Num,Attacker,Defender){
 
 function betterAttackFunction(Num,Attacker,Defender){
     console.log(Attacker.AA[0][`attackObject${Num}`].attackPWR);
+    
     /* Get myPokemons attack power */
-    let PWR = Attacker.AA[0][`attackObject${Num}`].attackPWR;
-
     /*Special javaScript here for special attacks */
+    let PWR = Attacker.AA[0][`attackObject${Num}`].specialAttack(Attacker.AA[0], Defender.AA[0]);
+
+    /* Calculate for weakness and resitance */
     let damage =damageCalculations(PWR, Attacker, Defender);
 
     /*Inflict Damage to Rivals Pokemon */

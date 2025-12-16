@@ -9,6 +9,8 @@
     <link rel ="stylesheet" href ="./StylesFolder/ComputerActiveArea.css">
     <link rel ="stylesheet" href ="./StylesFolder/PlayerBenchArea.css">
     <link rel ="stylesheet" href ="./StylesFolder/hand.css">
+    <link rel ="stylesheet" href ="./StylesFolder/PokemonDialogueBox.css">
+    
     <link rel="icon" href="data:,">
 </head>
 
@@ -71,7 +73,25 @@
         <!-- Player Divide-->
         <div class = "playerDivide"> 
             <div class="playerDivideImageContainer">
-                
+                <div class="playerDivideColumns">
+                    <div class="playerDivideColumn">
+
+                    </div>
+                    <div class="playerDivideColumn">
+
+                    </div>
+                    <div class="playerDivideColumn">
+                        <div class="textBox">   
+                            <p id="consoleText"> Pokémon battling is a strategic and exciting</p>
+                        </div>
+                    </div>
+                    <div class="playerDivideColumn">
+
+                    </div>
+                    <div class="playerDivideColumn">
+                        <h1 id="coinFlipper" class="coinFlipper"> </h1>
+                    </div>
+                </div>
             </div>
             
         </div>
@@ -131,6 +151,7 @@
                 <div class ="benchHeaders">
                     <div>
                         <button id="pDrawButton" > Draw </button>
+                        <button id="flip" > Flip </button>
                     </div>
 
                     <div>
