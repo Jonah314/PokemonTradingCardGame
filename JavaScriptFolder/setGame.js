@@ -6,9 +6,11 @@ import { setHandGraphics } from "./setHandGraphics.js";
 function setGame(myPlayer, rivalPlayer){
     setGameSolo(myPlayer);
     setGameSolo(rivalPlayer);
+
     setCounters(myPlayer,rivalPlayer);
     setBench(myPlayer);
     setHandGraphics(myPlayer);
+    updateDiscardPileImg(myPlayer);
 }
 
 /* Sets individual players up */
@@ -45,6 +47,13 @@ function activeAreaChecker(player){
         document.getElementById(`AA${player.suffix}Graphic`).src= "";
         document.getElementById(`AA${player.suffix}AttackOne`).innerHTML= "";
         document.getElementById(`AA${player.suffix}AttackTwo`).innerHTML="";
+    }
+}
+
+function updateDiscardPileImg(player){
+    if(player.discard.length!==0){
+        let lastIndex = player.discard.length -1; 
+        document.getElementById(`${player.suffix}Discard`).src=player.discard[lastIndex].imgAddress;
     }
 }
 

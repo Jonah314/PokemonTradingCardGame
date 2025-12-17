@@ -1,3 +1,6 @@
+import { textBoxUpdate } from "./textBox.js";
+
+
 class Player{
     
 
@@ -57,14 +60,19 @@ class Player{
     }
 
     knockout(){
-        this.AA[0].health=this.AA[0].hp;
-        this.AA[0].status="none";
-        
-        while (this.AA.length > 0){
-            let card = this.AA.pop();
-            this.discard.push(card);
+        if(this.AA.length!==0){
+            this.AA[0].health=this.AA[0].hp;
+            this.AA[0].status="none";
+            textBoxUpdate(`${this.name}'s ${this.AA[0].name} was knocked out!`);
+
+            while (this.AA.length > 0){
+                let card = this.AA.pop();
+                this.discard.push(card);
+                console.log(`${this.name}'s ${card.name} was knocked out!`);
+            }
+            
+            
         }
-        
     }
 
     

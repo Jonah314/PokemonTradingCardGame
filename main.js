@@ -17,7 +17,7 @@ let myPlayer = new Player("Jonah","p");
 let myDeck = new Deck(deckFactoryOvergrowth);
 myDeck.shuffle();
 myPlayer.setInitHand(myDeck);
-;
+
 
 
 /*Setting up Rival */
@@ -29,7 +29,7 @@ myPlayer.AA[0]=createBulbasaur();
 myPlayer.AA[1]=createBulbasaur();
 myPlayer.AA[2]=createCharmander();
 
-let rivalPokemon = createBulbasaur();
+let rivalPokemon = createCharmander();
 rivalPlayer.setActivePokemon(rivalPokemon);
 
 
