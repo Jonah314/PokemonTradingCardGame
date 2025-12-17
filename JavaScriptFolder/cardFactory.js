@@ -40,6 +40,11 @@ function createIvysaur(){
         20,
         "./Img/ivysaur.jpg"
     );
+    function PoisonPowder(player, rival) {
+        AttackFunctions.setStatusEffect(rival, "poisoned");
+        return 20;
+    }
+    card.attackObjectTwo.specialAttack = PoisonPowder;
     return card;
 }
 
@@ -57,8 +62,7 @@ function createCharmander(){
         "./Img/charmander.jpg"
     );
     function ember() {
-        console.log("special attack used");
-        console.log("I burnt up an Energy Card");
+        return 30;
     }
     card.attackObjectTwo.specialAttack = ember;
 
@@ -78,6 +82,20 @@ function createBeedrill(){
         40,
         "./Img/beedrill.jpg"
     );
+    function Twineedle(player, rival) {
+        let damage= AttackFunctions.damageMultiplier(30, 2);
+        return damage;
+    }
+    card.attackObjectOne.specialAttack = Twineedle;
+
+    function PoisonSting(player, rival) {
+        let coinResult = coinFlipper();
+        if(coinResult === "Heads") {
+            AttackFunctions.setStatusEffect(rival, "poisoned");
+        }
+        return 40;
+    }
+    card.attackObjectTwo.specialAttack = PoisonSting;
     return card;
 }
 
@@ -94,6 +112,14 @@ function createGyarados(){
         40,
         "./Img/gyarados.jpg"
     );
+    function Bubblebeam(player, rival) {
+        let coinResult = coinFlipper();
+        if (coinResult === "Heads") {
+            AttackFunctions.setStatusEffect(rival, "paralyzed");
+        }
+        return 40;
+    }
+    card.attackObjectTwo.specialAttack = Bubblebeam;
     return card;
 }
 
@@ -110,6 +136,14 @@ function createKakuna(){
         20,
         "./Img/kakuna.jpg"
     );
+    function PoisonPowder(player, rival) {
+        let coinResult = coinFlipper(); 
+        if(coinResult === "Heads") {
+        AttackFunctions.setStatusEffect(rival, "poisoned");
+        }
+        return 20;
+    }
+    card.attackObjectTwo.specialAttack = PoisonPowder;
     return card;
 }
 
@@ -126,6 +160,11 @@ function createMagikarp(){
         10,
         "./Img/magikarp.jpg"
     );
+    function flail() {
+        let counters = card.counters;
+        return counters * 1;
+    }
+    card.attackObjectTwo.specialAttack = flail;
     return card;
 }
 
@@ -193,6 +232,16 @@ function createWeedle(){
         0,
         "./Img/Weedle.jpg"
     );
+
+    function PoisonSting(player, rival) {
+        let coinResult = coinFlipper(); 
+        if(coinResult === "Heads") {
+        AttackFunctions.setStatusEffect(rival, "poisoned");
+        }
+        return 10;
+    }
+    card.attackObjectOne.specialAttack = PoisonSting;
+
     return card;
 }
 

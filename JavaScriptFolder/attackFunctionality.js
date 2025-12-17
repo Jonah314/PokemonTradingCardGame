@@ -1,5 +1,6 @@
 //Use these functions to implement attack functionality
 import { textBoxUpdate } from "./textBox.js";
+import { coinFlipper } from "./coinFlipper.js";
 
 function setStatusEffect(defender, status) {
     defender.status = status;
@@ -24,6 +25,21 @@ function heal(attacker, healAmount) {
         }, 500);
     }
 }
+function damageMultiplier(baseDamage, multiplier) {
+    let totalDamage=0;
+    while (multiplier > 0) {
+        let coinResult = coinFlipper();
+        if (coinResult === "Heads") {
+            totalDamage += baseDamage;
+        } 
+        multiplier--;
+    }
+    if(totalDamage ===0){
+        textBoxUpdate(`All coin flips were tails! No damage dealt!`);    
+    }
+
+    return totalDamage;
+}
 
 
-export { setStatusEffect, heal };
+export { setStatusEffect, heal, damageMultiplier };
