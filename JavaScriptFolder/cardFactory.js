@@ -1,5 +1,7 @@
 import CardBasic from "./CardBasic.js";
 import { textBoxUpdate } from "./textBox.js";
+import * as AttackFunctions from "./attackFunctionality.js";
+import { coinFlipper } from "./coinFlipper.js"; 
 
 
 function createBulbasaur() {
@@ -16,13 +18,8 @@ function createBulbasaur() {
         "./Img/bulbasaur.png"
     );
 
-    function leechSeed() {
-        
-        if(card.health<40){
-            card.health +=10;
-            card.counters -=10;
-            
-        }
+    function leechSeed(player, rival) {
+        AttackFunctions.heal(player, 10);
         return 20
     }
     card.attackObjectOne.specialAttack = leechSeed;
@@ -145,6 +142,25 @@ function createStarmie(){
         20,
         "./Img/Starmie.jpg"
     );
+
+    function Recover(player, rival) {
+        AttackFunctions.heal(player, 60);
+        return 0;
+    }
+    card.attackObjectOne.specialAttack = Recover;
+
+    function StarFreeze(player, rival) {
+        let coinResult = coinFlipper();
+        if (coinResult === "heads") {
+            AttackFunctions.setStatusEffect(rival, "paralyzed");
+        }
+        return 20;
+        }
+        
+    card.attackObjectTwo.specialAttack = StarFreeze;
+
+
+
     return card;
 }
 
