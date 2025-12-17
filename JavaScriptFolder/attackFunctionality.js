@@ -21,7 +21,7 @@ function heal(attacker, healAmount) {
     if (attacker.health > orginalHealth) {
         setTimeout(() => {
         textBoxUpdate(`${attacker.name} healed for ${attacker.health-orginalHealth} HP!`);
-        }, 2300);
+        }, 500);
     }
 }
 
