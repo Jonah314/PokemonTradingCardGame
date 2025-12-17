@@ -3,7 +3,7 @@ import { textBoxUpdate } from "./textBox.js";
 import * as AttackFunctions from "./attackFunctionality.js";
 import { coinFlipper } from "./coinFlipper.js"; 
 
-
+// Factory functions to create OverGrown cards
 function createBulbasaur() {
     const card = new CardBasic(
         "Bulbasaur",
@@ -245,12 +245,175 @@ function createWeedle(){
     return card;
 }
 
+// Card Factory for BrushFire Cards
 
+function createNinetales(){
+    const card = new CardBasic(
+        "Ninetales",
+        80,
+        "fire",
+        "water",
+        "none",
+        "Lure",
+        0,
+        "Fire Blast",
+        80,
+        "./Img/ninetales.jpg"
+    );
+    function FireBlast() {
+        return 80;
+    }   
+    card.attackObjectTwo.specialAttack = FireBlast;
+    return card;
+}
 
+function createTangela(){
+    const card = new CardBasic(
+        "Tangela",
+        50,
+        "grass",
+        "fire",
+        "none",
+        "Bind",
+        20,
+        "Poison Powder",
+        20,
+        "./Img/tangela.jpg"
+    );
+    function Bind(player, rival) {
+        let coinResult = coinFlipper();
+        if (coinResult === "Heads") {
+            AttackFunctions.setStatusEffect(rival, "paralyzed");
+        }
+        return 20;
+    }
+    card.attackObjectOne.specialAttack = Bind;
 
+    function PoisonPowder(player, rival) {
+        AttackFunctions.setStatusEffect(rival, "poisoned");
+        return 20;
+    }
 
+    card.attackObjectTwo.specialAttack = PoisonPowder;
+    return card;
+}
 
+function createNidoranMale(){
+    const card = new CardBasic(
+        "Nidoran",
+        40,
+        "grass",
+        "psychic",
+        "none",
+        "Horn Hazzard",
+        30,
+        "",
+        0,
+        "./Img/nidoranmale.jpg"
+    );
+    function HornHazzard(player, rival) {
+        let coinResult = coinFlipper();
+        if (coinResult === "Tails") {
+            setTimeout(() => {
+                textBoxUpdate(`${card.name} missed!`);
+            }, 300);
+            
+            return 0;
+        }else {
+            return 30;
+        }
+    }
+    card.attackObjectOne.specialAttack = HornHazzard;
+    return card;
+}
 
+function createArcanine(){
+    const card = new CardBasic(
+        "Arcanine",
+        100,
+        "fire",
+        "water",
+        "none",
+        "Flamethrower",
+        50,
+        "Take Down",
+        80,
+        "./Img/arcanine.jpg"
+    );
+    function Flamethrower() {
+        return 50;
+    }
+    card.attackObjectOne.specialAttack = Flamethrower;
+    function TakeDown(player, rival) {
+        card.counters += 30;
+        card.health -= 30;
+        textBoxUpdate(`${card.name} took 30 damage from recoil!`);
+        return 80;
+    }
+
+    card.attackObjectTwo.specialAttack = TakeDown;
+    return card;
+}
+
+function createGrowlithe(){
+    const card = new CardBasic(
+        "Growlithe",
+        60,
+        "fire",
+        "water",
+        "none",
+        "Flare",
+        20,
+        "",
+        0,
+        "./Img/growlithe.jpg"
+    );
+    return card;
+}
+
+function createVulpix(){
+    const card = new CardBasic(
+        "Vulpix",
+        50,
+        "fire",
+        "water",
+        "none",
+        "Confuse Ray",
+        10,
+        "",
+        0,
+        "./Img/vulpix.jpg"
+    );
+    function ConfuseRay(player, rival) {
+        let coinResult = coinFlipper();
+        if (coinResult === "Heads") {
+            AttackFunctions.setStatusEffect(rival, "confused");
+        }
+        return 10;
+    }
+    card.attackObjectOne.specialAttack = ConfuseRay;
+    return card;
+}
+
+function createCharmeleon(){
+    const card = new CardBasic(
+        "Charmeleon",
+        80,
+        "fire",
+        "water",
+        "none",
+        "Slash",
+        30,
+        "Flamethrower",
+        50,
+        "./Img/charmeleon.jpg"
+    );
+    function Flamethrower() {
+        return 50;
+    }
+    card.attackObjectTwo.specialAttack = Flamethrower;
+    return card;
+}
 
 export {
     createBulbasaur,
@@ -262,6 +425,13 @@ export {
     createStarmie,
     createStaryu,
     createWeedle,
-    createIvysaur
+    createIvysaur,
+    createNinetales,
+    createTangela,
+    createNidoranMale,
+    createArcanine,
+    createGrowlithe,
+    createVulpix,
+    createCharmeleon
 };
 

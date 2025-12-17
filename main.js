@@ -1,23 +1,24 @@
-import bulbasaurAttacks from "./JavaScriptFolder/javaScript.js";
-import CardBasic from "./JavaScriptFolder/CardBasic.js";
 
-import { createBulbasaur, createCharmander } from "./JavaScriptFolder/cardFactory.js";
+
+import * as CardFactory from "./JavaScriptFolder/cardFactory.js";
 import { setGame } from "./JavaScriptFolder/setGame.js";
 import { attack,betterAttackFunction } from "./JavaScriptFolder/attack.js";
 import { setAllActiveAreaHealth, setRivalHealth,betterSetAllActiveAreaHealth } from "./JavaScriptFolder/setPokemonHealth.js";
 import {setCounters} from "./JavaScriptFolder/counterCalculations.js";
 import Deck from "./JavaScriptFolder/deck.js";
-import { deckFactoryOvergrowth } from "./JavaScriptFolder/deckFactory.js";
+import { deckFactoryOvergrowth,deckFactoryFireBrush } from "./JavaScriptFolder/deckFactory.js";
 import Player from "./JavaScriptFolder/player.js";
 import { setBenchButton } from "./JavaScriptFolder/setBenchButton.js";
 import { coinFlipper } from "./JavaScriptFolder/coinFlipper.js";
 
+
+
 /*Setting up Player */
 let myPlayer = new Player("Jonah","p");
-let myDeck = new Deck(deckFactoryOvergrowth);
+let myDeck = new Deck(deckFactoryFireBrush);
 myDeck.shuffle();
 myPlayer.setInitHand(myDeck);
-
+myPlayer.AA[0]= CardFactory.createCharmeleon();
 
 
 /*Setting up Rival */
@@ -25,11 +26,10 @@ let rivalPlayer = new Player("Rival", "r");
 let rivalDeck = new Deck(deckFactoryOvergrowth);
 rivalDeck.shuffle();
 rivalPlayer.setInitHand(rivalDeck);
-myPlayer.AA[0]=createBulbasaur();
-myPlayer.AA[1]=createBulbasaur();
-myPlayer.AA[2]=createCharmander();
 
-let rivalPokemon = createCharmander();
+
+let rivalPokemon = CardFactory.createCharmander();
+
 rivalPlayer.setActivePokemon(rivalPokemon);
 
 
