@@ -74,12 +74,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     //Set Bench Pokemon Buttons
-    document.getElementById("Pb1button")?.addEventListener("click", (e)=>{
-        const button = e.currentTarget;
-        
-        setBenchButton(myPlayer,button);
-        setGame(myPlayer,rivalPlayer);
-    })
+    const buttons = document.querySelectorAll(".pbButtons");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", (e) => {
+            const btn = e.currentTarget;
+            console.log("Button clicked:", btn.id);
+            setBenchButton(myPlayer, btn);
+            setGame(myPlayer, rivalPlayer);
+    });
+});
+
+
+
 
     //Set draw buttons
     document.getElementById("pDrawButton")?.addEventListener("click", () => {

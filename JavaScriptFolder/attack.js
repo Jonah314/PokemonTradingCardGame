@@ -37,7 +37,8 @@ function betterAttackFunction(Num,Attacker,Defender){
 
     /*Set Counters for rivalpokemonObject */
     Defender.AA[0].counters += damage;
-    textBoxUpdate(`${Attacker.AA[0].name} used ${Attacker.AA[0][`attackObject${Num}`]._attackName}!!`);
+    let attackMessage = `${Attacker.AA[0].name} used ${Attacker.AA[0][`attackObject${Num}`].attackName} and dealt ${damage} damage!`;
+    textBoxUpdate(attackMessage);
 
 }
 
