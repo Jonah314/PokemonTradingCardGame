@@ -5,7 +5,7 @@ function setStatusEffect(defender, status) {
     defender.status = status;
     setTimeout(() => {
         textBoxUpdate(`${defender.name} is now ${status}!`);
-        }, 2300);
+        }, 300);
 }
 
 function heal(attacker, healAmount) {
