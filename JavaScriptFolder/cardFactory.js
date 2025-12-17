@@ -21,12 +21,12 @@ function createBulbasaur() {
         if(card.health<40){
             card.health +=10;
             card.counters -=10;
-            console.log("I healed myself");
+            
         }
         return 20
     }
     card.attackObjectOne.specialAttack = leechSeed;
-
+    
     return card;
 }
 
