@@ -8,8 +8,14 @@ function coinFlipper() {
         setTimeout(() => {
             document.getElementById("coinFlipper").innerHTML= flipResult;
             }, 1000);
-            textBoxUpdate(`The coin landed on ... ${flipResult}...`);
+
+        
+        
+        
+            textBoxUpdate(`The coin landed on ...${flipResult}...`);
             
+
+        
         return flipResult;
 
 

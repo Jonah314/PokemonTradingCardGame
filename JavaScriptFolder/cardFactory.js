@@ -151,12 +151,12 @@ function createStarmie(){
 
     function StarFreeze(player, rival) {
         let coinResult = coinFlipper();
-        if (coinResult === "heads") {
+        if (coinResult === "Heads") {
             AttackFunctions.setStatusEffect(rival, "paralyzed");
         }
         return 20;
         }
-        
+
     card.attackObjectTwo.specialAttack = StarFreeze;
 
 
