@@ -1,12 +1,19 @@
 import Card from "./Card.js";
 import { textBoxUpdate } from "./textBox.js";
 
+/*Energy Cards:
+   
+*/
+
+
 class AttackObject{
     /* AR taught me that I can assign default values in the constructor */
-    constructor(attackName, attackPWR,specialAttack = () => {}){
+    
+    
+    constructor(attackName, attackPWR, attackRequirments = [],specialAttack = () => {}){
         this._attackName = attackName;
         this._attackPWR=attackPWR;
-        
+        this._attackRequirments = attackRequirments;
     }
     get attackName(){
         return this._attackName;
@@ -21,7 +28,7 @@ class AttackObject{
 }
 
 class CardBasic extends Card {
-    constructor(name, hp=10, type='normal', weakness='none', resistance='none', attackOneName="tackle", attack1=10, attackTwoName="",attack2=0,imgAddress){
+    constructor(name, hp=10, type='normal', weakness='none', resistance='none', attackOneName="tackle", attack1=10,attack1EnergyReq=[], attackTwoName="",attack2=0, attackTwoEnergyReq=[],retreatCost =0, imgAddress){
         super(name);
         this._hp=hp;
         this._type=type;
@@ -30,9 +37,10 @@ class CardBasic extends Card {
         this._knockedOut=false;
         this._counters=0;
         this._health=hp;
+        this._retreatCost = retreatCost;
         this._imgAddress=imgAddress;
-        this._attackObjectOne = new AttackObject(attackOneName,attack1);
-        this._attackObjectTwo = new AttackObject(attackTwoName,attack2);
+        this._attackObjectOne = new AttackObject(attackOneName,attack1,attack1EnergyReq);
+        this._attackObjectTwo = new AttackObject(attackTwoName,attack2,attackTwoEnergyReq);
     }
 
     get hp(){

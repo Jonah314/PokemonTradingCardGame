@@ -13,8 +13,11 @@ function createBulbasaur() {
         "none",
         "Leech Seed",
         20,
+        ['grass','grass'],
         "",
         0,
+        [],
+        1,
         "./Img/bulbasaur.png"
     );
 
@@ -36,8 +39,11 @@ function createIvysaur(){
         "none",
         "VineWhip",
         30,
+        ['grass', 'star','star'],
         "Poisonpowder",
         20,
+        ['grass','grass','grass'],
+        1,
         "./Img/ivysaur.jpg"
     );
     function PoisonPowder(player, rival) {
@@ -57,8 +63,11 @@ function createCharmander(){
         "none",
         "Scratch",
         10,
+        "star",
         "Ember",
         30,
+        "fire, star",
+        1,
         "./Img/charmander.jpg"
     );
     function ember() {
@@ -78,8 +87,11 @@ function createBeedrill(){
         "fighting",
         "Twineedle",
         30,
+        ['star','star','star'],
         "Poison Sting",
         40,
+        ['grass','grass','grass'],
+        1,
         "./Img/beedrill.jpg"
     );
     function Twineedle(player, rival) {
@@ -108,8 +120,11 @@ function createGyarados(){
         "fighting",
         "Dragon Rage",
         50,
+        ['water','water','water'],
         "Bubblebeam",
         40,
+        ['water','water','water','water'],
+        3,
         "./Img/gyarados.jpg"
     );
     function Bubblebeam(player, rival) {
@@ -132,8 +147,11 @@ function createKakuna(){
         "none",
         "stiffen",
         0,
+        ['star','star'],
         "Poisonpowder",
         20,
+        ['grass','grass'],
+        2,
         "./Img/kakuna.jpg"
     );
     function PoisonPowder(player, rival) {
@@ -156,8 +174,11 @@ function createMagikarp(){
         "none",
         "Tackle",
         10,
+        ['star'],
         "flail",
         10,
+        ['water'],
+        1,
         "./Img/magikarp.jpg"
     );
     function flail() {
@@ -177,8 +198,11 @@ function createStarmie(){
         "none",
         "Recover",
         0,
+        ['water','water'],
         "Star Freeze",
         20,
+        ['water','star','star'],
+        1,
         "./Img/Starmie.jpg"
     );
 
@@ -212,8 +236,11 @@ function createStaryu(){
         "none",
         "slap",
         20,
+        ['water'],
         "",
         0,
+        [],
+        1,
         "./Img/Staryu.jpg"
     );
     return card;
@@ -229,7 +256,11 @@ function createWeedle(){
         "Poison Sting",
         10,
         "",
+        ['grass'],  
+        "",
         0,
+        [],
+        1,
         "./Img/Weedle.jpg"
     );
 
@@ -256,8 +287,11 @@ function createNinetales(){
         "none",
         "Lure",
         0,
+        ['star','star'],
         "Fire Blast",
         80,
+        ["fire","fire","fire","fire"],  
+        1,
         "./Img/ninetales.jpg"
     );
     function FireBlast() {
@@ -276,8 +310,11 @@ function createTangela(){
         "none",
         "Bind",
         20,
+        ['grass','star'],
         "Poison Powder",
         20,
+        ["grass","grass","grass"],
+        2,
         "./Img/tangela.jpg"
     );
     function Bind(player, rival) {
@@ -307,8 +344,11 @@ function createNidoranMale(){
         "none",
         "Horn Hazzard",
         30,
+        ['grass'],
         "",
-        0,
+        0,  
+        [],
+        1,
         "./Img/nidoranmale.jpg"
     );
     function HornHazzard(player, rival) {
@@ -336,8 +376,11 @@ function createArcanine(){
         "none",
         "Flamethrower",
         50,
+        ['fire','fire','star'],
         "Take Down",
         80,
+        ["fire","fire","star","star"],
+        3,
         "./Img/arcanine.jpg"
     );
     function Flamethrower() {
@@ -364,9 +407,13 @@ function createGrowlithe(){
         "none",
         "Flare",
         20,
+        ['fire','star'],
         "",
         0,
+        [],
+        1,
         "./Img/growlithe.jpg"
+
     );
     return card;
 }
@@ -380,8 +427,11 @@ function createVulpix(){
         "none",
         "Confuse Ray",
         10,
+        ['fire','fire'],
         "",
-        0,
+        0,  
+        [],
+        1,
         "./Img/vulpix.jpg"
     );
     function ConfuseRay(player, rival) {
@@ -404,8 +454,11 @@ function createCharmeleon(){
         "none",
         "Slash",
         30,
+        ["star","star","star"],
         "Flamethrower",
         50,
+        ["fire","fire","star"],
+        1,
         "./Img/charmeleon.jpg"
     );
     function Flamethrower() {
@@ -426,8 +479,11 @@ function createMewtwo(){
         "none",
         "Psychic",
         10,
+        ['psychic','star'],
         "Barrier",
         0,
+        ["psychic","psychic"],
+        3,
         "./Img/mewtwo.jpg"
     );
     return card;
@@ -442,8 +498,11 @@ function createKadabra(){
         "none",
         "recover",
         0,
+        ["psychic","psychic"],
         "Super Psy",
         50,
+        ["psychic","psychic","star"],
+        3,
         "./Img/kadabra.jpg"
     );
     function recover(player, rival) {
@@ -464,8 +523,11 @@ function createJynx(){
         "none",
         "Doubleslap",
         10,
+        ["psychic"],
         "Meditate",
         20,
+        ["psychic","psychic","star"],
+        3,
         "./Img/jynx.jpg"
     );
     function Doubleslap() {
@@ -492,9 +554,11 @@ function createHaunter(){
         "none",
         "Hypnosis",
         0,
+        ["psychic"],
         "Dream Eater",
         50,
-
+        ["psychic","psychic"],
+        1,
         "./Img/haunter.jpg"
     );
     function Hypnosis(player, rival) {
@@ -524,7 +588,10 @@ function createGastly(){
         "fighting",
         "Sleeping Gas",
         0,
+        ["psychic"],
         "Destiny Bond",
+        0,
+        ["psychic","star"],
         0,
         "./Img/gastly.jpg"
     );
@@ -554,8 +621,11 @@ function createDrowzee(){
         "none",
         "Pound",
         10,
+        ['star'],
         "Confuse Ray",
         10,
+        ["psychic","pscychic"],
+        1,
         "./Img/drowzee.jpg"
     );
     function ConfuseRay(player, rival) {
@@ -578,7 +648,10 @@ function createAbra(){
         "none",
         "Psyschock",
         10,
+        ["psychic"],
         "",
+        0,
+        [],
         0,
         "./Img/abra.jpg"
     );
@@ -603,8 +676,11 @@ function createPikachu(){
         "none",
         "Gnaw",
         10,
+        ["star"],
         "Thunder Jolt",
         30,
+        ["electric","star"],
+        1,
         "./Img/pikachu.jpg"
     );
 
@@ -630,8 +706,11 @@ function createMagnemite(){
         "none",
         "Thunder Wave",
         0,
+        ["electric"],
         "Selfdestruct",
         40,
+        ["electric","star"],
+        1,
         "./Img/magnemite.jpg"
     );
     function ThunderWave(player, rival) {
