@@ -415,6 +415,244 @@ function createCharmeleon(){
     return card;
 }
 
+//Creating Card Factory for Zap Deck
+
+function createMewtwo(){
+    const card = new CardBasic(
+        "Mewtwo",
+        60,
+        "psychic",
+        "psychic",
+        "none",
+        "Psychic",
+        10,
+        "Barrier",
+        0,
+        "./Img/mewtwo.jpg"
+    );
+    return card;
+}
+
+function createKadabra(){
+    const card = new CardBasic(
+        "Kadabra",
+        60,
+        "psychic",
+        "psychic",
+        "none",
+        "recover",
+        0,
+        "Super Psy",
+        50,
+        "./Img/kadabra.jpg"
+    );
+    function recover(player, rival) {
+        AttackFunctions.heal(player, 60);
+        return 0;
+    }
+    card.attackObjectOne.specialAttack = recover;
+
+    return card;
+}
+
+function createJynx(){
+    const card = new CardBasic(
+        "Jynx",
+        70,
+        "psychic",
+        "psychic",
+        "none",
+        "Doubleslap",
+        10,
+        "Meditate",
+        20,
+        "./Img/jynx.jpg"
+    );
+    function Doubleslap() {
+        let damage = AttackFunctions.damageMultiplier(10, 2);
+        return damage;
+    }
+    card.attackObjectOne.specialAttack = Doubleslap;
+
+    function Meditate(player, rival) {
+        let addOnDamage = rival.counters;
+        return 20 + addOnDamage;
+    }
+    card.attackObjectTwo.specialAttack = Meditate;
+
+    return card;
+}
+
+function createHaunter(){
+    const card = new CardBasic( 
+        "Haunter",
+        60,
+        "psychic",
+        "psychic",
+        "none",
+        "Hypnosis",
+        0,
+        "Dream Eater",
+        50,
+
+        "./Img/haunter.jpg"
+    );
+    function Hypnosis(player, rival) {
+        AttackFunctions.setStatusEffect(rival, "asleep");
+        return 0;
+    }
+
+    card.attackObjectOne.specialAttack = Hypnosis;
+    
+    function DreamEater(player, rival) {
+        if (rival.status === "asleep") {
+            return 50;
+        }else {
+        return 0;
+        }
+    }
+    card.attackObjectTwo.specialAttack = DreamEater;
+    return card;
+}
+
+function createGastly(){
+    const card = new CardBasic(
+        "Gastly",
+        30,
+        "psychic",
+        "none",
+        "fighting",
+        "Sleeping Gas",
+        0,
+        "Destiny Bond",
+        0,
+        "./Img/gastly.jpg"
+    );
+
+    function SleepingGas(player, rival) {
+        let coinResult = coinFlipper();
+        if (coinResult === "Heads") {
+            AttackFunctions.setStatusEffect(rival, "asleep");
+        }   
+        return 0;
+    }
+    card.attackObjectOne.specialAttack = SleepingGas;
+
+    function DestinyBond(player, rival) {
+        return 0;
+    }
+    card.attackObjectTwo.specialAttack = DestinyBond;
+    return card;
+}
+
+function createDrowzee(){
+    const card = new CardBasic(
+        "Drowzee",
+        50,
+        "psychic",
+        "psychic",
+        "none",
+        "Pound",
+        10,
+        "Confuse Ray",
+        10,
+        "./Img/drowzee.jpg"
+    );
+    function ConfuseRay(player, rival) {
+        let coinResult = coinFlipper();
+        if (coinResult === "Heads") {
+            AttackFunctions.setStatusEffect(rival, "confused");
+        }
+        return 10;
+    }
+    card.attackObjectTwo.specialAttack = ConfuseRay;
+    return card;
+}
+
+function createAbra(){
+    const card = new CardBasic(
+        "Abra",
+        30,
+        "psychic",
+        "psychic",
+        "none",
+        "Psyschock",
+        10,
+        "",
+        0,
+        "./Img/abra.jpg"
+    );
+
+    function Psyschock(player,rival) {
+        let coinResult = coinFlipper();
+        if (coinResult === "Heads") {
+            AttackFunctions.setStatusEffect(rival, "paralyzed");
+        }
+        return 10;
+    }
+    card.attackObjectOne.specialAttack = Psyschock;
+    return card;
+}
+
+function createPikachu(){
+    const card = new CardBasic(
+        "Pikachu",
+        40,
+        "electric",
+        "fighting",
+        "none",
+        "Gnaw",
+        10,
+        "Thunder Jolt",
+        30,
+        "./Img/pikachu.jpg"
+    );
+
+    function ThunderJolt(player, rival) {
+        let coinResult = coinFlipper();
+        if (coinResult === "Tails") {
+            card.health -= 10;
+            card.counters += 10;
+            textBoxUpdate(`${card.name} took 10 damage from recoil!...`);
+        }
+        return 30;
+    }
+    card.attackObjectTwo.specialAttack = ThunderJolt;
+    return card;
+}
+
+function createMagnemite(){
+    const card = new CardBasic(
+        "Magnemite",
+        40,
+        "electric",
+        "fighting",
+        "none",
+        "Thunder Wave",
+        0,
+        "Selfdestruct",
+        40,
+        "./Img/magnemite.jpg"
+    );
+    function ThunderWave(player, rival) {
+        let coinResult = coinFlipper();
+        if (coinResult === "Heads") {
+            AttackFunctions.setStatusEffect(rival, "paralyzed");
+        }
+        return 10;
+    }
+    card.attackObjectOne.specialAttack = ThunderWave;
+
+    function Selfdestruct(player, rival) {
+        card.health -= 40;
+        card.counters += 40;
+        textBoxUpdate(`${card.name} took 40 damage from selfdestruct!...`);
+        return 40;
+    }
+    card.attackObjectTwo.specialAttack = Selfdestruct;
+    return card;
+}
+
 export {
     createBulbasaur,
     createCharmander,
@@ -432,6 +670,15 @@ export {
     createArcanine,
     createGrowlithe,
     createVulpix,
-    createCharmeleon
+    createCharmeleon,
+    createMewtwo,
+    createKadabra,
+    createJynx,
+    createHaunter,
+    createGastly,
+    createDrowzee,
+    createAbra,
+    createPikachu,
+    createMagnemite
 };
 

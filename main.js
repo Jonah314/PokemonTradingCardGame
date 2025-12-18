@@ -6,7 +6,7 @@ import { attack,betterAttackFunction } from "./JavaScriptFolder/attack.js";
 import { setAllActiveAreaHealth, setRivalHealth,betterSetAllActiveAreaHealth } from "./JavaScriptFolder/setPokemonHealth.js";
 import {setCounters} from "./JavaScriptFolder/counterCalculations.js";
 import Deck from "./JavaScriptFolder/deck.js";
-import { deckFactoryOvergrowth,deckFactoryFireBrush } from "./JavaScriptFolder/deckFactory.js";
+import { deckFactoryOvergrowth,deckFactoryFireBrush,deckFactoryZap } from "./JavaScriptFolder/deckFactory.js";
 import Player from "./JavaScriptFolder/player.js";
 import { setBenchButton } from "./JavaScriptFolder/setBenchButton.js";
 import { coinFlipper } from "./JavaScriptFolder/coinFlipper.js";
@@ -15,10 +15,10 @@ import { coinFlipper } from "./JavaScriptFolder/coinFlipper.js";
 
 /*Setting up Player */
 let myPlayer = new Player("Jonah","p");
-let myDeck = new Deck(deckFactoryFireBrush);
+let myDeck = new Deck(deckFactoryZap);
 myDeck.shuffle();
 myPlayer.setInitHand(myDeck);
-myPlayer.AA[0]= CardFactory.createCharmeleon();
+myPlayer.AA[0]= CardFactory.createMagnemite();
 
 
 /*Setting up Rival */

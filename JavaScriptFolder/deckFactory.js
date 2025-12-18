@@ -44,4 +44,25 @@ function deckFactoryFireBrush() {
     return deck;
 }
 
-export {deckFactoryOvergrowth, deckFactoryFireBrush};
+function deckFactoryZap() {
+    const deck = [];
+    const add = (card, count) => {
+        for (let i = 0; i < count; i++) {
+            deck.push(card());
+        }
+    };
+
+    add(cardFactory.createMewtwo, 1);
+    add(cardFactory.createPikachu, 4);
+    add(cardFactory.createMagnemite, 3);
+    add(cardFactory.createKadabra, 1);
+    add(cardFactory.createJynx, 2);
+    add(cardFactory.createHaunter, 2);
+    add(cardFactory.createGastly, 3);
+    add(cardFactory.createDrowzee, 2);
+    add(cardFactory.createAbra, 3);
+
+    return deck;
+}
+
+export {deckFactoryOvergrowth, deckFactoryFireBrush, deckFactoryZap};
