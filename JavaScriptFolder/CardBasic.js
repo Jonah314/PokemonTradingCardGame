@@ -41,6 +41,7 @@ class CardBasic extends Card {
         this._imgAddress=imgAddress;
         this._attackObjectOne = new AttackObject(attackOneName,attack1,attack1EnergyReq);
         this._attackObjectTwo = new AttackObject(attackTwoName,attack2,attackTwoEnergyReq);
+        this._type = "pokemon";
     }
 
     get hp(){
@@ -82,6 +83,12 @@ class CardBasic extends Card {
     }
     get attackObjectTwo(){
         return this._attackObjectTwo;
+    }
+    get retreatCost(){
+        return this._retreatCost;
+    }
+    get type(){
+        return this._type;
     }
 
     addCounters(damageCounters){

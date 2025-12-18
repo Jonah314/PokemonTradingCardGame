@@ -255,7 +255,6 @@ function createWeedle(){
         "none",
         "Poison Sting",
         10,
-        "",
         ['grass'],  
         "",
         0,

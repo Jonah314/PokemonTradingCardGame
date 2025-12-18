@@ -8,6 +8,10 @@ function setHandGraphics(player) {
 
     player.hand.forEach(card => {
         // Create wrapper div
+        
+
+
+        //wrapper for img
         const cardBox = document.createElement('div');
         cardBox.classList.add('handCardBox');
 
@@ -17,11 +21,25 @@ function setHandGraphics(player) {
         img.src = card.imgAddress;
         img.alt = 'Playing card';
 
+        //Create button
+        const button = document.createElement('button');
+        button.classList.add('setCard');
+        if(card.type === 'pokemon'){
+        button.textContent = 'Place On Bench';
+        }
+        if(card.type === 'energy'){
+            button.textContent = 'Play Energy';
+        }if(card.type === 'trainer'){
+            button.textContent = 'Activate';
+        }
+
         // Nest img inside div
-        cardBox.appendChild(img);
+        
+        cardBox.appendChild(button);
 
         // Add to hand container
         handList.appendChild(cardBox);
+        cardBox.appendChild(img);
     });
 }
 

@@ -6,6 +6,7 @@ class CardEnergy extends Card {
         this._type = type;
         this._imgAddress = imgAddress;
         this._value = value;
+        this._type = 'energy';
     }
 
     get type() {
@@ -18,6 +19,9 @@ class CardEnergy extends Card {
 
     get value() {
         return this._value;
+    }
+    get type() {
+        return this._type;
     }
 }
 

@@ -15,7 +15,7 @@ import { coinFlipper } from "./JavaScriptFolder/coinFlipper.js";
 
 /*Setting up Player */
 let myPlayer = new Player("Jonah","p");
-let myDeck = new Deck(deckFactoryZap);
+let myDeck = new Deck(deckFactoryOvergrowth);
 myDeck.shuffle();
 myPlayer.setInitHand(myDeck);
 myPlayer.AA[0]= CardFactory.createMagnemite();

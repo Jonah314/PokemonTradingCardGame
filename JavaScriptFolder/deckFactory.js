@@ -1,4 +1,5 @@
 import * as cardFactory from "./cardFactory.js";
+import {createDoubleColorlessEnergy, createEnergy} from "./cardEnergyFactory.js"
 
 
 function deckFactoryOvergrowth() {
@@ -20,8 +21,12 @@ function deckFactoryOvergrowth() {
     add(cardFactory.createStaryu, 4);
     add(cardFactory.createWeedle, 4);
 
+    const energyArray = createEnergy('Grass', 12).concat(createEnergy('Water', 16));
+    deck.push(...energyArray);
     return deck;
 }
+
+
 
 function deckFactoryFireBrush() {
     const deck = [];
