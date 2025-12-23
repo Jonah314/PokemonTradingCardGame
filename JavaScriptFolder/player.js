@@ -67,8 +67,9 @@ class Player{
 
             while (this.AA.length > 0){
                 let card = this.AA.pop();
-                this.discard.push(card);
                 console.log(`${this.name}'s ${card.name} was knocked out!`);
+                this.discard.push(card);
+                
             }
             
             

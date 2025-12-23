@@ -1,5 +1,5 @@
 import { setGame } from "./setGame.js";
-
+import { textBoxUpdate } from "./textBox.js";
 
 /* Player & suffix */
 
@@ -12,14 +12,19 @@ function setBenchButton(player, button){
    if(!player.AA || !player.AA.length===0){
         throw new Error("AA is not empty or does not exist");
    }
-
+    
    
+
     let bench = button.id.substring(1,3);
-    let cardToMove=player[`${bench}`][0];
-    player.setActivePokemon(cardToMove);
 
-
-    console.log('bench function was called');
+   if(!player[`${bench}`][0]|| !player[`${bench}`][0]===0){
+        textBoxUpdate("There is no Pokemon sitting at that location!");
+   }else{
+        let cardToMove=player[`${bench}`][0];
+        player.setActivePokemon(cardToMove);
+        console.log('bench function was called');
+   }
+    
     
 }
 
