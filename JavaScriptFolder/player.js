@@ -40,6 +40,7 @@ class Player{
     set pendingPlacement(replacement){
         this._pendingPlacement = replacement;
     }
+  
 
     setActivePokemon(pokemon){
         this.AA.push(pokemon);

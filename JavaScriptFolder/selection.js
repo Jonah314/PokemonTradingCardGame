@@ -44,4 +44,11 @@ function getEnergyPlacementOptions(player){
     return arrOfOptions;
 }
 
-export {spaceOptionHighlighter, getPokemonPlacementOptions};
+function resetGlows(){
+    let elements =document.querySelectorAll(".glow");
+    elements.forEach(element => {
+        element.classList.remove("glow");
+    });
+}
+
+export {spaceOptionHighlighter,resetGlows, getPokemonPlacementOptions};
