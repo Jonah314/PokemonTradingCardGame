@@ -13,6 +13,7 @@ function setGame(myPlayer, rivalPlayer){
     setHandGraphics(myPlayer);
     updateDiscardPileImg(myPlayer);
     displayEnergies(myPlayer);
+    console.log(myPlayer);
 }
 
 /* Sets individual players up */
