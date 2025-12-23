@@ -1,4 +1,5 @@
 import Player from "./player.js";
+import { spaceOptionHighlighter,getPokemonPlacementOptions } from "./selection.js";
 
 function setHandGraphics(player) {
     const handList = document.getElementById('hand');
@@ -27,14 +28,17 @@ function setHandGraphics(player) {
         if(card.type === 'pokemon'){
             button.textContent = 'Play Pokemon';
             button.addEventListener('click', () => {
-                pendingPlacement = {
+                    let pendingPlacement = {
                     card,
                     handIndex: player.hand.indexOf(card),
-                    player
                 }
 
+                player.pendingPlacement= pendingPlacement;
+                console.log(player);
+                console.log(pendingPlacement);
                 //We can call a function that will highlight available options
-                console.log(card)
+                spaceOptionHighlighter(getPokemonPlacementOptions,player);
+                
             });
         }
         if(card.type === 'energy'){

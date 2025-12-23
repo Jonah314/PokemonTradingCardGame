@@ -17,6 +17,7 @@ class Player{
         this.prizes=[];
         this.discard=[];
         this._status="none";
+        this._pendingPlacement={};
     }
     get name(){
         return this._name;
@@ -33,19 +34,25 @@ class Player{
     set status(newStatus){
         this._status=newStatus;
     }
-
+    get pendingPlacement(){
+        return this._pendingPlacement;
+    }
+    set pendingPlacement(replacement){
+        this._pendingPlacement = replacement;
+    }
 
     setActivePokemon(pokemon){
         this.AA.push(pokemon);
         console.log("my active pokemon is " + this.AA[0].name);
     }
 
-    setBenchPokemon(deck, seat){
+    setBenchPokemon(pokemon, seat){
     if (!this[seat]) {
         throw new Error(`Invalid bench seat: ${seat}`);
     }
-    this[seat].push(deck.draw());
+    this[seat].push(pokemon);
     }
+
     setInitHand(deck){
         this.draw(deck,5);
     }

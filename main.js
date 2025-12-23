@@ -11,7 +11,12 @@ import Player from "./JavaScriptFolder/player.js";
 import { setBenchButton } from "./JavaScriptFolder/setBenchButton.js";
 import { coinFlipper } from "./JavaScriptFolder/coinFlipper.js";
 import { spaceOptionHighlighter, getPokemonPlacementOptions } from "./JavaScriptFolder/selection.js";
+import {gameState} from "./JavaScriptFolder/gameState.js";
+import { playPokemon } from "./JavaScriptFolder/playCardFromHand.js";
 
+
+ const myGameState = new gameState;
+ globalThis.myGameState = myGameState;
 //creating variable to hold card objects when they need to be moved
 
 
@@ -131,6 +136,23 @@ document.addEventListener("DOMContentLoaded", () => {
         setGame(myPlayer,rivalPlayer);
     });
 
+    //setPokemon From Hand
+    const benchBoxCardButtons = document.querySelectorAll(".benchImgContainer");
+
+    benchBoxCardButtons.forEach(button => {
+        button.addEventListener("click", (e) => {
+        const btn = e.currentTarget;
+        playPokemon(myPlayer, btn);
+        setGame(myPlayer, rivalPlayer);
+       
+    });
+    })
+    /* document.getElementById("pb1Box")?.addEventListener("click", (e) => {
+        const btn = e.currentTarget;
+        playPokemon(myPlayer, btn);
+        
+       
+    }); */
     
 
 });
