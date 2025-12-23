@@ -46,6 +46,9 @@ function deckFactoryFireBrush() {
     add(cardFactory.createVulpix, 2);
     add(cardFactory.createCharmander, 4);
 
+
+    const energyArray = createEnergy('Grass', 10).concat(createEnergy('Fire', 18));
+    deck.push(...energyArray);
     return deck;
 }
 
@@ -66,6 +69,9 @@ function deckFactoryZap() {
     add(cardFactory.createGastly, 3);
     add(cardFactory.createDrowzee, 2);
     add(cardFactory.createAbra, 3);
+
+    const energyArray = createEnergy('Lightning', 12).concat(createEnergy('Psychic', 16));
+    deck.push(...energyArray);
 
     return deck;
 }

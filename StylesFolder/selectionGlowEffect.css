@@ -1,0 +1,29 @@
+/* The outer container */
+.glow {
+    position: relative;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 140, 255, 0.3); /* Subtle blue border */
+    
+    filter: drop-shadow(0 0 5px rgba(0, 140, 255, 0.4));
+   /*pulse animation was oginally gold, but it didnt show well because of the
+   cards yellow border */
+    animation: gold-pulse 1.5s infinite alternate ease-in-out;
+}
+
+
+
+
+
+/* Keyframes for the pulsing glow */
+@keyframes gold-pulse {
+      0% {
+        /* Minimal glow: single thin layer */
+        box-shadow: 0 0 8px rgba(0, 140, 255, 0.4);
+    }
+    100% {
+        /* Soft expansion: two layers with low opacity */
+        box-shadow: 
+            0 0 15px rgba(0, 140, 255, 0.8), 
+            0 0 25px rgba(0, 200, 255, 0.5);
+    }
+}

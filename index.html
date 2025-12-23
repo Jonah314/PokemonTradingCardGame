@@ -10,6 +10,7 @@
     <link rel ="stylesheet" href ="./StylesFolder/PlayerBenchArea.css">
     <link rel ="stylesheet" href ="./StylesFolder/hand.css">
     <link rel ="stylesheet" href ="./StylesFolder/PokemonDialogueBox.css">
+    <link rel ="stylesheet" href ="./StylesFolder/selectionGlowEffect.css">
     
     <link rel="icon" href="data:,">
 </head>
@@ -42,7 +43,7 @@
                     
                     
                     <div class = "cardBox">
-                        <img id= "AArGraphic" src = "">
+                        <img id= "rAAGraphic" src = "">
                     </div>
                     
                     <div class = "buttonBox">
@@ -119,9 +120,9 @@
                     </div>
                     
                     
-                    <div class = "cardBox">
-                        <div class="AAImgContainer">
-                            <img id= "AApGraphic" src = "">
+                    <div class = "cardBox" id = "pAACardBox" >
+                        <div class="AAImgContainer"  >
+                            <img id= "pAAGraphic" class=""  src = "">
                         </div>
                         
                     </div>
@@ -155,6 +156,8 @@
                     <div>
                         <button id="pDrawButton" > Draw </button>
                         <button id="flip" > Flip </button>
+                        <!-- For testing purposes-->
+                        <button id="GLOW" > Glow </button>
                     </div>
 
                     <div>
@@ -207,7 +210,7 @@
                     
                     <div class = "benchSeat">
                         <div class="seat" id="playerSeatOne">
-                            <div class="benchImgContainer">
+                            <div class="benchImgContainer" id="pb1Box">
                                 <img id ="pb1Graphic" src="">
                             </div>
                         </div>
@@ -229,8 +232,8 @@
                     </div>
 
                     <div class = "benchSeat">
-                        <div class="seat" id="playerSeatTwo">
-                            <div class="benchImgContainer">
+                        <div class="seat" id="playerSeatTwo" >
+                            <div class="benchImgContainer" id ="pb2Box">
                                 <img id ="pb2Graphic" src="">
                             </div>
                         </div>
@@ -252,7 +255,7 @@
                     
                     <div class = "benchSeat">
                         <div class="seat" id="playerSeatThree">
-                            <div class="benchImgContainer">
+                            <div class="benchImgContainer" id ="pb3Box">
                                 <img id ="pb3Graphic" src="">
                             </div>
                         </div>
@@ -274,7 +277,7 @@
 
                     <div class = "benchSeat">
                         <div class="seat" id="playerSeatFour">
-                            <div class="benchImgContainer">
+                            <div class="benchImgContainer" id ="pb4Box">
                                 <img id ="pb4Graphic" src="">
                             </div>
                         </div>
@@ -297,8 +300,8 @@
 
                     <div class = "benchSeat">
                         <div class="seat" id="playerSeatFive">
-                            <div class="benchImgContainer">
-                                <img id ="pb5Graphic" src="">
+                            <div class="benchImgContainer" id ="pb5Box">
+                                <img id ="pb5Graphic"  src="">
                             </div>
                         </div>
                         <div class ="benchDetails">

@@ -22,7 +22,7 @@ function setGameSolo(player){
     /* Set Players Health, Graphic then Attack names */
     if(player.AA.length !== 0){
     document.getElementById(`AA${player.suffix}Hp`).innerHTML=player.AA[0].health + " Hp";
-    document.getElementById(`AA${player.suffix}Graphic`).src=player.AA[0].imgAddress;
+    document.getElementById(`${player.suffix}AAGraphic`).src=player.AA[0].imgAddress;
     setAttackNames(player);
     }else {
         console.log(`${player.name} does not have any cards in the Acitve Area`);
@@ -44,7 +44,7 @@ function setAttackNames(player){
 function activeAreaChecker(player){
     if(!player.AA[0]){
         document.getElementById(`AA${player.suffix}Hp`).innerHTML= "_ Hp";
-        document.getElementById(`AA${player.suffix}Graphic`).src= "";
+        document.getElementById(`${player.suffix}AAGraphic`).src= "";
         document.getElementById(`AA${player.suffix}AttackOne`).innerHTML= "";
         document.getElementById(`AA${player.suffix}AttackTwo`).innerHTML="";
     }

@@ -8,6 +8,7 @@ import { setGame } from "./setGame.js";
     /* Later I need to create a statement to check if the area is empty*/
 function setBenchButton(player, button){
    // I need to check if the AA array is empty, if not Ill need to send an error message
+   console.log(player);
    if(!player.AA || !player.AA.length===0){
         throw new Error("AA is not empty or does not exist");
    }

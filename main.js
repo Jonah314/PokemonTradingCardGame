@@ -10,15 +10,27 @@ import { deckFactoryOvergrowth,deckFactoryFireBrush,deckFactoryZap } from "./Jav
 import Player from "./JavaScriptFolder/player.js";
 import { setBenchButton } from "./JavaScriptFolder/setBenchButton.js";
 import { coinFlipper } from "./JavaScriptFolder/coinFlipper.js";
+import { spaceOptionHighlighter, getPokemonPlacementOptions } from "./JavaScriptFolder/selection.js";
 
+//creating variable to hold card objects when they need to be moved
 
 
 /*Setting up Player */
+
+
+/*Here I am using a callback function to create a deck. Each
+ call back function is a different deck. */
+ //My options are deckFactoryOvergrowth, deckFactoryFireBrush, and deckFactoryZap
+//   |    |   |
+//   V    V   V
+let myDeck = new Deck(deckFactoryZap);
 let myPlayer = new Player("Jonah","p");
-let myDeck = new Deck(deckFactoryOvergrowth);
+let myPokemon = CardFactory.createCharmander();
+myPlayer.setActivePokemon(myPokemon);
+
 myDeck.shuffle();
 myPlayer.setInitHand(myDeck);
-myPlayer.AA[0]= CardFactory.createMagnemite();
+
 
 
 /*Setting up Rival */
@@ -36,11 +48,12 @@ rivalPlayer.setActivePokemon(rivalPokemon);
 
 
 /* For testing purposes, will restructure later */
-myPlayer.setBenchPokemon(myDeck, 'b1');
+/* myPlayer.setBenchPokemon(myDeck, 'b1');
 myPlayer.setBenchPokemon(myDeck,'b2');
 myPlayer.setBenchPokemon(myDeck, 'b3');
 myPlayer.setBenchPokemon(myDeck, 'b4');
-myPlayer.setBenchPokemon(myDeck,'b5');
+myPlayer.setBenchPokemon(myDeck,'b5'); */
+
 
 console.log("my bench pokemon are:", myPlayer.b1[0]);
 
@@ -98,6 +111,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("flip")?.addEventListener("click", () => {
         coinFlipper();
     });
+    //Set Glow Button for testing purposes
+    document.getElementById("GLOW")?.addEventListener("click", () => {
+        // Call Glow Effect function here
+        spaceOptionHighlighter(getPokemonPlacementOptions, myPlayer);
+    })
 
 
 

@@ -25,7 +25,17 @@ function setHandGraphics(player) {
         const button = document.createElement('button');
         button.classList.add('setCard');
         if(card.type === 'pokemon'){
-        button.textContent = 'Place On Bench';
+            button.textContent = 'Play Pokemon';
+            button.addEventListener('click', () => {
+                pendingPlacement = {
+                    card,
+                    handIndex: player.hand.indexOf(card),
+                    player
+                }
+
+                //We can call a function that will highlight available options
+                console.log(card)
+            });
         }
         if(card.type === 'energy'){
             button.textContent = 'Play Energy';
