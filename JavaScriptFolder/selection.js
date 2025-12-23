@@ -32,6 +32,7 @@ function getPokemonPlacementOptions(player){
             arrOfOptions.push(`${player.suffix}b${i}Box`);
         }
     }
+    
     //arrOfOptions.push("pb1Box");
     //will return arrOfOptions
     return arrOfOptions
@@ -39,8 +40,17 @@ function getPokemonPlacementOptions(player){
 
 function getEnergyPlacementOptions(player){
     let arrOfOptions = [];
-
-
+    if(player.AA.length>0){
+        arrOfOptions.push(`${player.suffix}AACardBox`);
+    }
+    for(let i = 1; i <= 5; i ++){
+        if(player[`b${i}`].length>0){
+            arrOfOptions.push(`${player.suffix}b${i}Box`);
+        }
+    }
+    console.log("You stacks is :");
+    console.log(player.AA);
+    console.log(player.b1);
     return arrOfOptions;
 }
 
@@ -51,4 +61,4 @@ function resetGlows(){
     });
 }
 
-export {spaceOptionHighlighter,resetGlows, getPokemonPlacementOptions};
+export {spaceOptionHighlighter,resetGlows, getPokemonPlacementOptions, getEnergyPlacementOptions};

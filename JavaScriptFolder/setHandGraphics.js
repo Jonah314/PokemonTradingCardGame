@@ -1,5 +1,5 @@
 import Player from "./player.js";
-import { spaceOptionHighlighter,getPokemonPlacementOptions } from "./selection.js";
+import { spaceOptionHighlighter,getPokemonPlacementOptions, getEnergyPlacementOptions } from "./selection.js";
 
 function setHandGraphics(player) {
     const handList = document.getElementById('hand');
@@ -43,6 +43,19 @@ function setHandGraphics(player) {
         }
         if(card.type === 'energy'){
             button.textContent = 'Play Energy';
+            button.addEventListener('click', () => {
+                    let pendingPlacement = {
+                    card,
+                    handIndex: player.hand.indexOf(card),
+                }
+
+                player.pendingPlacement= pendingPlacement;
+                console.log(player);
+                console.log(pendingPlacement);
+                //We can call a function that will highlight available options
+                spaceOptionHighlighter(getEnergyPlacementOptions,player);
+                
+            });
         }if(card.type === 'trainer'){
             button.textContent = 'Activate';
         }

@@ -146,6 +146,21 @@ document.addEventListener("DOMContentLoaded", () => {
         setGame(myPlayer, rivalPlayer);
        
     });
+    
+
+    })
+
+    const activeBoxCardButtons = document.querySelectorAll(".AAImgContainer");
+
+    activeBoxCardButtons.forEach(button => {
+        button.addEventListener("click", (e) => {
+        const btn = e.currentTarget;
+        playPokemon(myPlayer, btn);
+        setGame(myPlayer, rivalPlayer);
+       
+    });
+    
+
     })
     /* document.getElementById("pb1Box")?.addEventListener("click", (e) => {
         const btn = e.currentTarget;

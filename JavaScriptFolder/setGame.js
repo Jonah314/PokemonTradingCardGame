@@ -1,6 +1,7 @@
 import {setCounters} from "./counterCalculations.js";
 import { setBench } from "./setBenchPokemon.js";
 import { setHandGraphics } from "./setHandGraphics.js";
+import { displayEnergies } from "./energyGraphics.js";
 
 
 function setGame(myPlayer, rivalPlayer){
@@ -11,6 +12,7 @@ function setGame(myPlayer, rivalPlayer){
     setBench(myPlayer);
     setHandGraphics(myPlayer);
     updateDiscardPileImg(myPlayer);
+    displayEnergies(myPlayer);
 }
 
 /* Sets individual players up */
